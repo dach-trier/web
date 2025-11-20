@@ -1,7 +1,13 @@
 {
+    "general": {
+        "socials": "Соціальні Мережі"
+    },
     "auth": {
         "signin": {
             "button": "Увійти за допомогою {provider}"
         }
+    },
+    "maintenance": {
+        "title": "У розробці"
     }
 }

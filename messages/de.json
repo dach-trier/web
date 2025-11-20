@@ -3,5 +3,8 @@
         "signin": {
             "button": "Mit {provider} anmelden"
         }
+    },
+    "maintenance": {
+        "title": "Seite im Aufbau"
     }
 }

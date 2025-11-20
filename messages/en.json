@@ -3,5 +3,8 @@
         "signin": {
             "button": "Sign in with {provider}"
         }
+    },
+    "maintenance": {
+        "title": "Coming Soon"
     }
 }
