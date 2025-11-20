@@ -14,7 +14,7 @@ export default async function proxy(request: NextRequest) {
         return NextResponse.redirect(request.nextUrl);
     }
 
-    if (maintenance && !pathname.startsWith("/maintenance")) {
+    if (maintenance && pathname != "/maintenance") {
         request.nextUrl.pathname = "/maintenance";
         return NextResponse.redirect(request.nextUrl);
     }
