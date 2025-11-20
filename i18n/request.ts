@@ -4,9 +4,16 @@ import { routing } from "@/i18n/routing";
 
 export default getRequestConfig(async ({ requestLocale }) => {
     const requested = await requestLocale;
-    const locale = hasLocale(routing.locales, requested)
+    let locale;
+
+    locale = hasLocale(routing.locales, requested)
         ? requested
         : routing.defaultLocale;
+
+    // A significant number of Ukrainian-speaking users may have Russian as their
+    // primary language. Since Russian isn't supported, next-intl would normally
+    // fall back to English, which isn't ideal. We'll default to Ukrainian instead.
+    locale = locale == "ru" ? "uk" : locale;
 
     return {
         locale,
