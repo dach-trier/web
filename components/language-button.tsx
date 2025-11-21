@@ -4,7 +4,13 @@ import { useState, useCallback, useEffect, useRef } from "react";
 import { useTranslationContext } from "@/i18n/client";
 import { postLocale } from "@/i18n/cookie";
 
-export default function LanguageButton() {
+type LanguageButtonProps = {
+    alignment?: "bottom-left" | "bottom-center" | "bottom-right";
+};
+
+export default function LanguageButton(props: LanguageButtonProps) {
+    const alignment = props.alignment ?? "bottom-left";
+
     const translationContext = useTranslationContext();
     const locale = !translationContext.auto
         ? translationContext.locale
@@ -74,13 +80,25 @@ export default function LanguageButton() {
             {visible && (
                 <div
                     ref={dropdownRef}
-                    className="
-                        absolute mt-2 right-0
-                        w-[225px]
-                        rounded-sm
-                        outline-1 outline-gray-200
-                        shadow-lg
-                    "
+                    className={[
+                        "absolute mt-2",
+                        "w-[225px]",
+                        "rounded-sm",
+                        "outline-1 outline-gray-200",
+                        "shadow-lg",
+
+                        // select alignment
+                        (() => {
+                            switch (alignment) {
+                                case "bottom-left":
+                                    return "right-0";
+                                case "bottom-center":
+                                    return "left-1/2 -translate-x-1/2";
+                                case "bottom-right":
+                                    return "left-0";
+                            }
+                        })(),
+                    ].join(" ")}
                 >
                     <Option
                         which={"auto"}
