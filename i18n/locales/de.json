@@ -6,5 +6,13 @@
     },
     "maintenance": {
         "title": "Seite im Aufbau"
+    },
+    "components": {
+        "language-button": {
+            "auto": "Systemstandard",
+            "en": "Englisch",
+            "de": "Deutsch",
+            "uk": "Ukrainisch"
+        }
     }
 }

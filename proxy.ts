@@ -17,7 +17,12 @@ export default async function proxy(request: NextRequest) {
     }
 
     return NextResponse.next({
-        headers: { "x-application-locale": resolveLocale(request.headers) },
+        headers: {
+            "x-application-locale": resolveLocale(
+                request.headers,
+                request.cookies,
+            ),
+        },
     });
 }
 

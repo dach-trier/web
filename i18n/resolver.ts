@@ -1,3 +1,5 @@
+import { RequestCookies } from "next/dist/server/web/spec-extension/cookies";
+
 import Negotiator from "negotiator";
 import i18nConfig from "@/i18n.config";
 
@@ -7,13 +9,11 @@ import i18nConfig from "@/i18n.config";
  * @param headers - The request headers to inspect.
  * @returns The resolved locale.
  */
-export function resolveLocale(headers: Headers): string {
-    const locales = new Negotiator({
-        headers: {
-            "accept-language": headers.get("accept-language") ?? undefined,
-        },
-    }).languages();
-
+export function resolveLocale(
+    headers: Headers,
+    cookies: RequestCookies,
+): string {
+    const locales = extractLocales(headers, cookies);
     let fallback = i18nConfig.default;
 
     for (const locale of locales) {
@@ -26,4 +26,16 @@ export function resolveLocale(headers: Headers): string {
     }
 
     return fallback;
+}
+
+function extractLocales(headers: Headers, cookies: RequestCookies): string[] {
+    if (cookies.has(i18nConfig.cookie)) {
+        return [cookies.get(i18nConfig.cookie)!.value];
+    }
+
+    return new Negotiator({
+        headers: {
+            "accept-language": headers.get("accept-language") ?? undefined,
+        },
+    }).languages();
 }
