@@ -1,4 +1,5 @@
 import { getProviders } from "next-auth/react";
+import { getTranslations } from "@/i18n/server";
 import { redirect } from "next/navigation";
 import { auth } from "@/auth";
 
@@ -9,9 +10,14 @@ export default async function SignIn() {
         redirect("/");
     }
 
+    const translations = await getTranslations();
+
     return (
         <div className="w-screen h-screen flex justify-center items-center">
-            <SignInForm providers={(await getProviders()) ?? []} />
+            <SignInForm
+                translations={translations["auth"]["signin"]}
+                providers={(await getProviders()) ?? []}
+            />
         </div>
     );
 }

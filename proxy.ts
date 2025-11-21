@@ -1,8 +1,5 @@
-import createMiddleware from "next-intl/middleware";
-import { routing } from "@/i18n/routing";
 import { NextRequest, NextResponse } from "next/server";
-
-const intlMiddleware = createMiddleware(routing);
+import { resolveLocale } from "@/i18n/resolver";
 
 export default async function proxy(request: NextRequest) {
     const pathname = request.nextUrl.pathname;
@@ -19,7 +16,9 @@ export default async function proxy(request: NextRequest) {
         return NextResponse.redirect(request.nextUrl);
     }
 
-    return intlMiddleware(request);
+    return NextResponse.next({
+        headers: { "x-application-locale": resolveLocale(request.headers) },
+    });
 }
 
 export const config = {

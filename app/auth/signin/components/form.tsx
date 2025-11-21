@@ -2,19 +2,17 @@
 
 import { BuiltInProviderType } from "next-auth/providers";
 import { ClientSafeProvider, LiteralUnion, signIn } from "next-auth/react";
-import { useTranslations } from "next-intl";
 
 import Image from "next/image";
 
 type Props = {
+    translations: any;
     providers:
         | Record<LiteralUnion<BuiltInProviderType, string>, ClientSafeProvider>
         | never[];
 };
 
-export default function SignInForm({ providers }: Props) {
-    const t = useTranslations("auth.signin");
-
+export default function SignInForm({ translations, providers }: Props) {
     return (
         <div className="flex flex-col gap-10">
             <Image
@@ -39,7 +37,10 @@ export default function SignInForm({ providers }: Props) {
                     key={provider.name}
                     onClick={() => signIn(provider.id)}
                 >
-                    {t("button", { provider: provider.name })}
+                    {translations["button"].replace(
+                        "{provider}",
+                        provider.name,
+                    )}
                 </button>
             ))}
         </div>

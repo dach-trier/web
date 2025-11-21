@@ -1,19 +1,20 @@
 import { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
+import { getTranslations } from "@/i18n/server";
 import { getLogoPath } from "@/logo";
 
 export async function generateMetadata(): Promise<Metadata> {
-    const t = await getTranslations("maintenance");
-    return { title: t("title") };
+    const translations = (await getTranslations())["maintenance"];
+    return { title: translations["title"] };
 }
 
 export default async function MaintenancePage() {
-    const t = await getTranslations("maintenance");
+    const translations = (await getTranslations())["maintenance"];
+
     return (
         <div className="w-screen h-screen flex flex-col justify-center items-center gap-5">
             <img width={100} src={getLogoPath("dach")} alt="logo" />
 
-            <h2 className="text-2xl font-bold">{t("title")}</h2>
+            <h2 className="text-2xl font-bold">{translations["title"]}</h2>
 
             <p>info@dach-trier.com</p>
 
