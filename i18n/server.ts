@@ -13,5 +13,5 @@ export async function getLocale() {
 }
 
 export async function getTranslations() {
-    return await import(`./locales/${await getLocale()}.json`);
+    return (await import(`./locales/${await getLocale()}.json`)).default;
 }
