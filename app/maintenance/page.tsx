@@ -3,6 +3,7 @@ import { getTranslations } from "@/i18n/server";
 import { getLogoPath } from "@/logo";
 
 import LanguageButton from "@/components/language-button";
+import DonationButton from "@/components/donation-button";
 
 export async function generateMetadata(): Promise<Metadata> {
     const translations = (await getTranslations())["maintenance"];
@@ -14,7 +15,9 @@ export default async function MaintenancePage() {
 
     return (
         <div className="w-screen h-screen flex flex-col justify-center items-center gap-5 text-nowrap text-center">
-            <div className="absolute top-0 flex h-12 py-2">
+            <div className="absolute top-0 flex h-12 my-2 gap-5">
+                <DonationButton className="h-11 pl-2 pr-3" variant="wide" />
+
                 <LanguageButton
                     className="w-11 h-11"
                     alignment="bottom-center"

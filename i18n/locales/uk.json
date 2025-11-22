@@ -11,6 +11,9 @@
         "title": "У розробці"
     },
     "components": {
+        "donation-button": {
+            "donate": "Підтримати"
+        },
         "language-button": {
             "auto": "За замовчуванням",
             "en": "Англійська",
