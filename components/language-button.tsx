@@ -101,14 +101,15 @@ export default function LanguageButton(props: LanguageButtonProps) {
                         transition={{ type: "tween", duration: 0.1 }}
                         className={[
                             "absolute mt-2",
-                            "w-[200px]",
+                            "w-[250px]",
                             "rounded-sm",
                             "flex flex-col",
                             "outline-1 outline-gray-200",
                             "shadow-lg",
+                            "p-2",
 
                             // select alignment
-                            "top-full",
+                            "top-[110%]",
                             (() => {
                                 switch (alignment) {
                                     case "bottom-left":
@@ -124,33 +125,33 @@ export default function LanguageButton(props: LanguageButtonProps) {
                         <Option
                             which={"auto"}
                             hot={"auto" === hot}
+                            selected={"auto" === locale}
                             onClick={() => select("auto")}
                             onMouseEnter={() => setHot("auto")}
-                            onMouseLeave={() => setHot(locale)}
                         />
 
                         <Option
                             which={"en"}
                             hot={"en" === hot}
+                            selected={"en" === locale}
                             onClick={() => select("en")}
                             onMouseEnter={() => setHot("en")}
-                            onMouseLeave={() => setHot(locale)}
                         />
 
                         <Option
                             which={"de"}
                             hot={"de" === hot}
+                            selected={"de" === locale}
                             onClick={() => select("de")}
                             onMouseEnter={() => setHot("de")}
-                            onMouseLeave={() => setHot(locale)}
                         />
 
                         <Option
                             which={"uk"}
                             hot={"uk" === hot}
+                            selected={"uk" === locale}
                             onClick={() => select("uk")}
                             onMouseEnter={() => setHot("uk")}
-                            onMouseLeave={() => setHot(locale)}
                         />
                     </motion.div>
                 )}
@@ -162,27 +163,21 @@ export default function LanguageButton(props: LanguageButtonProps) {
 type OptionProps = {
     which: string;
     hot: boolean;
+    selected: boolean;
 
     onClick: () => void;
     onMouseEnter: () => void;
-    onMouseLeave: () => void;
 };
 
-function Option({
-    which,
-    hot,
-    onClick,
-    onMouseEnter,
-    onMouseLeave,
-}: OptionProps) {
+function Option({ which, hot, selected, onClick, onMouseEnter }: OptionProps) {
     const translations =
         useTranslationContext().translations["components"]["language-button"];
 
     return (
         <button
             className={[
-                "w-full",
-                "text-left px-4 py-2",
+                "flex! justify-between items-center",
+                "text-left px-4 py-2 rounded-sm",
                 "transition-colors",
                 "cursor-pointer",
                 !hot ? "bg-white" : "bg-gray-200",
@@ -190,11 +185,27 @@ function Option({
             ].join(" ")}
             onClick={onClick}
             onMouseOver={onMouseEnter}
-            onMouseLeave={onMouseLeave}
         >
-            <span className="text-[13pt] font-medium">
+            <span className="text-[12pt] font-medium">
                 {translations[which]}
             </span>
+
+            {selected && (
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth="2"
+                    stroke="currentColor"
+                    className="size-5"
+                >
+                    <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="m4.5 12.75 6 6 9-13.5"
+                    />
+                </svg>
+            )}
         </button>
     );
 }
