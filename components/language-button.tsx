@@ -3,6 +3,7 @@
 import { useState, useCallback, useEffect, useRef } from "react";
 import { useTranslationContext } from "@/i18n/client";
 import { postLocale } from "@/i18n/cookie";
+import { AnimatePresence, motion } from "motion/react";
 
 type LanguageButtonProps = {
     size?: number;
@@ -79,64 +80,81 @@ export default function LanguageButton(props: LanguageButtonProps) {
                 </svg>
             </button>
 
-            {visible && (
-                <div
-                    ref={dropdownRef}
-                    className={[
-                        "absolute mt-2",
-                        "w-[200px]",
-                        "rounded-sm",
-                        "flex flex-col",
-                        "outline-1 outline-gray-200",
-                        "shadow-lg",
-
-                        // select alignment
-                        "top-full",
-                        (() => {
+            <AnimatePresence>
+                {visible && (
+                    <motion.div
+                        key="dropdown-menu"
+                        ref={dropdownRef}
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.9 }}
+                        style={(() => {
                             switch (alignment) {
                                 case "bottom-left":
-                                    return "right-0";
+                                    return { originX: 1, originY: 0 };
                                 case "bottom-center":
-                                    return "left-1/2 -translate-x-1/2";
+                                    return { originX: 0.5, originY: 0 };
                                 case "bottom-right":
-                                    return "left-0";
+                                    return { originX: 0, originY: 0 };
                             }
-                        })(),
-                    ].join(" ")}
-                >
-                    <Option
-                        which={"auto"}
-                        hot={"auto" === hot}
-                        onClick={() => select("auto")}
-                        onMouseEnter={() => setHot("auto")}
-                        onMouseLeave={() => setHot(locale)}
-                    />
+                        })()}
+                        transition={{ type: "tween", duration: 0.1 }}
+                        className={[
+                            "absolute mt-2",
+                            "w-[200px]",
+                            "rounded-sm",
+                            "flex flex-col",
+                            "outline-1 outline-gray-200",
+                            "shadow-lg",
 
-                    <Option
-                        which={"en"}
-                        hot={"en" === hot}
-                        onClick={() => select("en")}
-                        onMouseEnter={() => setHot("en")}
-                        onMouseLeave={() => setHot(locale)}
-                    />
+                            // select alignment
+                            "top-full",
+                            (() => {
+                                switch (alignment) {
+                                    case "bottom-left":
+                                        return "right-0";
+                                    case "bottom-center":
+                                        return "left-1/2 -translate-x-1/2";
+                                    case "bottom-right":
+                                        return "left-0";
+                                }
+                            })(),
+                        ].join(" ")}
+                    >
+                        <Option
+                            which={"auto"}
+                            hot={"auto" === hot}
+                            onClick={() => select("auto")}
+                            onMouseEnter={() => setHot("auto")}
+                            onMouseLeave={() => setHot(locale)}
+                        />
 
-                    <Option
-                        which={"de"}
-                        hot={"de" === hot}
-                        onClick={() => select("de")}
-                        onMouseEnter={() => setHot("de")}
-                        onMouseLeave={() => setHot(locale)}
-                    />
+                        <Option
+                            which={"en"}
+                            hot={"en" === hot}
+                            onClick={() => select("en")}
+                            onMouseEnter={() => setHot("en")}
+                            onMouseLeave={() => setHot(locale)}
+                        />
 
-                    <Option
-                        which={"uk"}
-                        hot={"uk" === hot}
-                        onClick={() => select("uk")}
-                        onMouseEnter={() => setHot("uk")}
-                        onMouseLeave={() => setHot(locale)}
-                    />
-                </div>
-            )}
+                        <Option
+                            which={"de"}
+                            hot={"de" === hot}
+                            onClick={() => select("de")}
+                            onMouseEnter={() => setHot("de")}
+                            onMouseLeave={() => setHot(locale)}
+                        />
+
+                        <Option
+                            which={"uk"}
+                            hot={"uk" === hot}
+                            onClick={() => select("uk")}
+                            onMouseEnter={() => setHot("uk")}
+                            onMouseLeave={() => setHot(locale)}
+                        />
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </div>
     );
 }
