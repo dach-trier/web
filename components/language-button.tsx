@@ -101,12 +101,12 @@ export default function LanguageButton(props: LanguageButtonProps) {
                         transition={{ type: "tween", duration: 0.1 }}
                         className={[
                             "absolute mt-2",
-                            "w-[250px]",
+                            "min-w-[225px]",
                             "rounded-sm",
                             "flex flex-col",
                             "outline-1 outline-gray-200",
                             "shadow-lg",
-                            "p-2",
+                            "py-2",
 
                             // select alignment
                             "top-[110%]",
@@ -177,16 +177,16 @@ function Option({ which, hot, selected, onClick, onMouseEnter }: OptionProps) {
         <button
             className={[
                 "flex! justify-between items-center",
-                "text-left px-4 py-2 rounded-sm",
+                "text-left px-4 py-2",
                 "transition-colors",
                 "cursor-pointer",
-                !hot ? "bg-white" : "bg-gray-200",
-                "active:bg-zinc-300",
+                !hot ? "bg-white" : "bg-slate-100",
+                "active:bg-slate-200",
             ].join(" ")}
             onClick={onClick}
             onMouseOver={onMouseEnter}
         >
-            <span className="text-[12pt] font-medium">
+            <span className="text-[12pt]">
                 {translations[which]}
             </span>
 
@@ -195,7 +195,7 @@ function Option({ which, hot, selected, onClick, onMouseEnter }: OptionProps) {
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
-                    strokeWidth="2"
+                    strokeWidth="1.5"
                     stroke="currentColor"
                     className="size-5"
                 >
