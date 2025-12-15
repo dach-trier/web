@@ -4,7 +4,7 @@ import {
     createContext,
     ReactNode,
     useContext,
-    useEffect,
+    useLayoutEffect,
     useState,
 } from "react";
 
@@ -16,7 +16,11 @@ type Scroll = {
 const ScrollContext = createContext<Scroll | undefined>(undefined);
 
 export function useScroll() {
-    return useContext(ScrollContext);
+    const context = useContext(ScrollContext);
+    if (context === undefined || context === null) {
+        throw new Error("useScroll() must be used within <ScrollObserver/>");
+    }
+    return context;
 }
 
 type ScrollObserverProps = {
@@ -26,7 +30,7 @@ type ScrollObserverProps = {
 export function ScrollObserver({ children }: ScrollObserverProps) {
     const [scroll, setScroll] = useState<Scroll | undefined>(undefined);
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         const scrollHandler = () => {
             setScroll({
                 x: window.scrollX,
@@ -42,8 +46,10 @@ export function ScrollObserver({ children }: ScrollObserverProps) {
     }, []);
 
     return (
-        <ScrollContext.Provider value={scroll}>
-            {children}
-        </ScrollContext.Provider>
+        scroll && (
+            <ScrollContext.Provider value={scroll}>
+                {children}
+            </ScrollContext.Provider>
+        )
     );
 }

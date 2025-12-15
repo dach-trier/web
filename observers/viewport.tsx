@@ -1,7 +1,7 @@
 "use client";
 
 import {
-    useEffect,
+    useLayoutEffect,
     useState,
     ReactNode,
     useContext,
@@ -20,13 +20,19 @@ type ViewportObserverProps = {
 };
 
 export function useViewport() {
-    return useContext(ViewportContext);
+    const context = useContext(ViewportContext);
+    if (context === undefined || context === null) {
+        throw new Error(
+            "useViewport() must be used within <ViewportObserver/>",
+        );
+    }
+    return context;
 }
 
 export function ViewportObserver({ children }: ViewportObserverProps) {
-    const [viewport, setViewport] = useState<Viewport | undefined>(undefined);
+    const [viewport, setViewport] = useState<Viewport | undefined>();
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         const resizeHandler = () => {
             setViewport({
                 innerWidth: window.innerWidth,
@@ -40,10 +46,11 @@ export function ViewportObserver({ children }: ViewportObserverProps) {
         window.addEventListener("resize", resizeHandler);
         return () => window.removeEventListener("resize", resizeHandler);
     }, []);
-
     return (
-        <ViewportContext.Provider value={viewport}>
-            {children}
-        </ViewportContext.Provider>
+        viewport && (
+            <ViewportContext.Provider value={viewport}>
+                {children}
+            </ViewportContext.Provider>
+        )
     );
 }
