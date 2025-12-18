@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { getTranslations } from "@/i18n/server";
 
 import DachLogo from "@/logos/dach";
-import LanguageButton from "@/components/language-button/solid";
+import LanguageDropdown from "@/components/language-dropdown";
 import DonationButton from "@/components/donation-button/solid";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -21,7 +21,7 @@ export default async function MaintenancePage() {
                 </div>
 
                 <div className="absolute top-0 right-0 py-2 px-5">
-                    <LanguageButton size={11} alignment="bottom-left" />
+                    <LanguageDropdown variant="solid" x="right" width={44} />
                 </div>
             </>
 
