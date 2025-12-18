@@ -1,6 +1,6 @@
 import { getTranslations } from "@/i18n/server";
 
-import Heart from "@/icons/heart/solid";
+import Heart from "@/icons/heart";
 
 type Props = {
     size?: number;
@@ -27,7 +27,7 @@ export default async function DonationButton(props: Props) {
             href="https://paypal.me/dachtrier"
             target="_blank"
         >
-            <Heart size="90%" />
+            <Heart variant="solid" height="90%" />
 
             {showLabel && (
                 <span
