@@ -13,6 +13,7 @@ type ButtonProps = {
     width?: number | string;
     height?: number | string;
     radius?: number | string;
+    padding?: number | string;
 
     foregroundColor?: Color;
     foregroundShade?: Shade;
@@ -27,6 +28,7 @@ export default function Button({
     width,
     height,
     radius,
+    padding,
     onClick,
     foregroundColor = "black",
     foregroundShade = "normal",
@@ -47,11 +49,7 @@ export default function Button({
 
     return (
         <button
-            className="
-                cursor-pointer select-none
-                px-2 py-2
-                transition-colors
-            "
+            className="cursor-pointer select-none transition-colors"
             onMouseLeave={() => setState("cold")}
             onMouseEnter={() => setState("hot")}
             onMouseDown={() => setState("active")}
@@ -63,6 +61,7 @@ export default function Button({
                 color: foreground,
                 backgroundColor: background,
                 borderRadius: radius,
+                padding: padding,
             }}
         >
             {children}
