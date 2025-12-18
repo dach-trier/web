@@ -1,13 +1,15 @@
 type Props = {
-    size: number | string;
+    width?: string | number;
+    height?: string | number;
+    stroke?: string;
     strokeWidth?: number;
-    color?: string;
 };
 
 export default function ChevronDown({
-    size,
+    width,
+    height,
+    stroke = "currentColor",
     strokeWidth = 1.5,
-    color = "currentColor",
 }: Props) {
     return (
         <svg
@@ -15,8 +17,9 @@ export default function ChevronDown({
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth={strokeWidth}
-            stroke={color}
-            width={size}
+            stroke={stroke}
+            width={width}
+            height={height}
         >
             <path
                 strokeLinecap="round"
