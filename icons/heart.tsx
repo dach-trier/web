@@ -1,3 +1,35 @@
+type OutlineProps = {
+    width?: string | number;
+    height?: string | number;
+    stroke?: string;
+    strokeWidth?: number;
+};
+
+function Outline({
+    width,
+    height,
+    stroke = "curentColor",
+    strokeWidth = 1.5,
+}: OutlineProps) {
+    return (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke={stroke}
+            strokeWidth={strokeWidth}
+            width={width}
+            height={height}
+        >
+            <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"
+            />
+        </svg>
+    );
+}
+
 type SolidProps = {
     width?: string | number;
     height?: string | number;
@@ -18,10 +50,15 @@ function Solid({ width, height, fill = "currentColor" }: SolidProps) {
     );
 }
 
-type Props = { variant: "solid" } & SolidProps;
+type Props =
+    | ({ variant: "outline" } & OutlineProps)
+    | ({ variant: "solid" } & SolidProps);
 
 export default function Heart({ variant, ...props }: Props) {
     switch (variant) {
+        case "outline":
+            return <Outline {...props} />;
+
         case "solid":
             return <Solid {...props} />;
     }
