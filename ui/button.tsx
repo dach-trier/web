@@ -48,7 +48,6 @@ export default function Button({
             className="
                 cursor-pointer select-none
                 px-2 py-2 rounded-sm
-                shadow-xl
                 transition-colors
             "
             onMouseLeave={() => setState("cold")}
