@@ -12,19 +12,19 @@ import { postLocale } from "@/i18n/cookie";
 
 type IconProps = {
     locale: "en" | "uk" | "de";
-    height?: number | string;
+    size?: number | string;
 };
 
-function Icon({ locale, height }: IconProps) {
+function Icon({ locale, size }: IconProps) {
     switch (locale) {
         case "en":
-            return <GreatBritain height={height} />;
+            return <GreatBritain width={size} height={size} />;
 
         case "de":
-            return <Germany height={height} />;
+            return <Germany width={size} height={size} />;
 
         case "uk":
-            return <Ukraine height={height} />;
+            return <Ukraine width={size} height={size} />;
     }
 }
 
@@ -56,7 +56,7 @@ export default function LanguageMenuItem({ locale, onClick }: Props) {
         >
             <div className="flex! items-center justify-between gap-3">
                 <div className="flex items-center gap-4">
-                    <Icon locale={locale} height={26} />
+                    <Icon locale={locale} size={26} />
                     <span className="">{localeLegendMap[locale]}</span>
                 </div>
 
