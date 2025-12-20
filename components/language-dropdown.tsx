@@ -14,6 +14,7 @@ type Props = {
     height?: number | string;
     x?: "left" | "center" | "right";
     y?: "top" | "bottom";
+    spacing?: number;
 };
 
 export default function LanguageDropdown({
@@ -22,11 +23,16 @@ export default function LanguageDropdown({
     height,
     x,
     y,
+    spacing = 0,
 }: Props) {
     const dropdownRef = useRef<DropdownRef>(null);
 
     return (
-        <Dropdown ref={dropdownRef} spacing={15} {...{ x, y, width, height }}>
+        <Dropdown
+            ref={dropdownRef}
+            spacing={spacing}
+            {...{ x, y, width, height }}
+        >
             <Trigger variant={variant} width="100%" height="100%" />
             <Menu onSelection={() => dropdownRef.current?.close()}>
                 <Item locale="en" />
