@@ -53,11 +53,47 @@ function Solid({
     );
 }
 
-type Props = { variant: "solid" } & SolidProps;
+type OutlineProps = {
+    gap?: number;
+    size?: number;
+    color?: string;
+};
 
-export default function DonationButton({ variant, ...props }: Props) {
-    switch (variant) {
+function Outline({ gap = 8, size = 14, color = "red" }: OutlineProps) {
+    const translationContext = useTranslationContext();
+    const translations =
+        translationContext.translations["components"]["donation-button"];
+
+    return (
+        <span
+            onClick={() => window.open("https://paypal.me/dachtrier", "_blank")}
+            className="select-none"
+            style={{
+                display: "flex",
+                alignItems: "center",
+                color: color,
+                fontSize: size,
+                fontWeight: "bold",
+                cursor: "pointer",
+                gap,
+            }}
+        >
+            <Heart height={size * 1.4} variant="solid" fill={color} />
+            {translations["donate"]}
+        </span>
+    );
+}
+
+type Props =
+    | ({ variant: "solid" } & SolidProps)
+    | ({ variant: "outline" } & OutlineProps);
+
+export default function DonationButton(props: Props) {
+    switch (props.variant) {
         case "solid":
             return <Solid {...props} />;
+
+        case "outline":
+            return <Outline {...props} />;
     }
 }
