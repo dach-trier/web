@@ -9,7 +9,7 @@ import Menu from "@/components/language-dropdown/menu";
 import Item from "@/components/language-dropdown/item";
 
 type Props = {
-    variant: "solid";
+    variant: "solid" | "outline";
     width?: number | string;
     height?: number | string;
     x?: "left" | "center" | "right";
