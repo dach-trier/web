@@ -20,8 +20,14 @@ type Props = {
 export default function Flex({ children, justify, align, gap }: Props) {
     return (
         <div
-            className="flex"
-            style={{ justifyContent: justify, alignItems: align, gap }}
+            style={{
+                width: "100%",
+                height: "100%",
+                display: "flex",
+                justifyContent: justify,
+                alignItems: align,
+                gap,
+            }}
         >
             {children}
         </div>
