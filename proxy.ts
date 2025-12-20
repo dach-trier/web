@@ -2,20 +2,6 @@ import { NextRequest, NextResponse } from "next/server";
 import { resolveLocale } from "@/i18n/resolver";
 
 export default async function proxy(request: NextRequest) {
-    const pathname = request.nextUrl.pathname;
-    const maintenance = process.env["MAINTENANCE"] === "true";
-
-    // Block direct access to the maintenance page when maintenance mode is off.
-    if (!maintenance && pathname.startsWith("/maintenance")) {
-        request.nextUrl.pathname = "/";
-        return NextResponse.redirect(request.nextUrl);
-    }
-
-    if (maintenance && pathname != "/maintenance") {
-        request.nextUrl.pathname = "/maintenance";
-        return NextResponse.redirect(request.nextUrl);
-    }
-
     return NextResponse.next({
         headers: {
             "x-application-locale": resolveLocale(
