@@ -57,7 +57,7 @@ export default function LanguageMenuItem({ locale, onClick }: Props) {
             <div className="flex! items-center justify-between gap-3">
                 <div className="flex items-center gap-4">
                     <Icon locale={locale} size={26} />
-                    <span className="">{localeLegendMap[locale]}</span>
+                    <span className="text-base">{localeLegendMap[locale]}</span>
                 </div>
 
                 {selectedLocale === locale && (
