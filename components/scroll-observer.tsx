@@ -27,7 +27,7 @@ type ScrollObserverProps = {
     children: ReactNode;
 };
 
-export function ScrollObserver({ children }: ScrollObserverProps) {
+export default function ScrollObserver({ children }: ScrollObserverProps) {
     const [scroll, setScroll] = useState<Scroll | undefined>(undefined);
 
     useLayoutEffect(() => {

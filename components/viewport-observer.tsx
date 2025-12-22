@@ -29,7 +29,7 @@ export function useViewport() {
     return context;
 }
 
-export function ViewportObserver({ children }: ViewportObserverProps) {
+export default function ViewportObserver({ children }: ViewportObserverProps) {
     const [viewport, setViewport] = useState<Viewport | undefined>();
 
     useLayoutEffect(() => {
