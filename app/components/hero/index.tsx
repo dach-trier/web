@@ -1,14 +1,13 @@
 import styles from "./styles.module.css";
 
-import Map from "@/components/map";
-
+import DachLogo from "@/components/dach-logo";
 import StarIcon from "@/components/star-icon";
 import HeartIcon from "@/components/heart-icon";
 
 export default function Hero() {
     return (
-        <div className={styles["container"]}>
-            <div>
+        <div className="mt-10 flex items-center gap-20 justify-between px-(--content-padding)">
+            <div className="flex flex-col gap-10 h-fit">
                 <div className={styles["about"]}>
                     <h1>Dach</h1>
 
@@ -30,7 +29,7 @@ export default function Hero() {
                 </div>
             </div>
 
-            <Map className={styles["map"]} />
+            <DachLogo className="hidden h-50 md:block lg:h-80 2xl:h-90" />
         </div>
     );
 }
