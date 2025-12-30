@@ -7,7 +7,7 @@ const CarouselItem = (
     return (
         <div
             style={{ flex: `0 0 ${size ?? "100%"}`, ...style }}
-            className={`embla__slide ${className}`}
+            className={`embla__slide select-none ${className}`}
             {...rest}
         />
     );
