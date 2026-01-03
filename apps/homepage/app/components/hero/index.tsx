@@ -1,8 +1,5 @@
 import styles from "./styles.module.css";
-
-import DachLogo from "@/components/dach-logo";
-import StarIcon from "@/components/star-icon";
-import HeartIcon from "@/components/heart-icon";
+import { DachLogo, StarIcon, HeartIcon } from "@dach/svg";
 
 export default function Hero() {
     return (
@@ -24,7 +21,7 @@ export default function Hero() {
                     </button>
 
                     <button className={styles["support-button"]}>
-                        <HeartIcon variant="solid" height="25px" /> Support
+                        <HeartIcon fill="currentColor" height="25px" /> Support
                     </button>
                 </div>
             </div>

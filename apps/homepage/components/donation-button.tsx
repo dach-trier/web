@@ -1,8 +1,7 @@
 "use client";
 
 import { useTranslationContext } from "@/i18n/client";
-
-import Heart from "@/components/heart-icon";
+import { HeartIcon } from "@dach/svg";
 
 type SolidProps = {
     width?: number | string;
@@ -32,8 +31,7 @@ function Solid({
             onClick={() => window.open("https://paypal.me/dachtrier", "_blank")}
         >
             <div className="w-full h-full flex gap-2 py-2 pl-2 pr-3 items-center">
-                <Heart
-                    variant="solid"
+                <HeartIcon
                     width={heartWidth}
                     height={heartHeight}
                     fill="white"
@@ -75,7 +73,7 @@ function Outline({ gap = 8, size = 14, color = "red" }: OutlineProps) {
                 gap,
             }}
         >
-            <Heart height={size * 1.4} variant="solid" fill={color} />
+            <HeartIcon height={size * 1.4} fill={color} />
             {translations["donate"]}
         </span>
     );

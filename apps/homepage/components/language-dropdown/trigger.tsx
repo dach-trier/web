@@ -1,6 +1,5 @@
 import React, { MouseEvent } from "react";
-
-import Globe from "@/components/globe-icon";
+import { GlobeIcon } from "@dach/svg";
 
 type Props = {
     width?: number | string;
@@ -17,10 +16,10 @@ const Trigger = React.forwardRef<HTMLButtonElement, Props>(
                 style={{ width, height }}
                 className="cursor-pointer"
             >
-                <Globe variant="solid" fill="oklch(62.3% 0.214 259.815)" />
+                <GlobeIcon fill="oklch(62.3% 0.214 259.815)" />
             </button>
         );
-    },
+    }
 );
 
 export default Trigger;

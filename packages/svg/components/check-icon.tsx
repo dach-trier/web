@@ -1,6 +1,6 @@
-import IconProps from "@/types/icon-props";
+import type { SVGProps } from "react";
 
-const ChevronDownIcon = (props: IconProps) => {
+const CheckIcon = (props: SVGProps<SVGSVGElement>) => {
     const {
         fill = "none",
         stroke = "currentColor",
@@ -20,10 +20,10 @@ const ChevronDownIcon = (props: IconProps) => {
             <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                d="m19.5 8.25-7.5 7.5-7.5-7.5"
+                d="m4.5 12.75 6 6 9-13.5"
             />
         </svg>
     );
 };
 
-export default ChevronDownIcon;
+export default CheckIcon;

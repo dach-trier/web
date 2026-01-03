@@ -1,4 +1,5 @@
 import { CSSProperties } from "react";
+import { LocationMap } from "@dach/svg";
 
 type Props = {
     className?: string;
@@ -18,7 +19,7 @@ const Map = ({ className, style }: Props) => {
                 }}
             />
 
-            <img src="/map.svg" alt="map" className="w-full h-full" />
+            <LocationMap className="w-full h-full" />
         </div>
     );
 };

@@ -3,11 +3,7 @@
 import { MouseEvent } from "react";
 import { useTranslationContext } from "@/i18n/client";
 import { postLocale } from "@/i18n/cookie";
-
-import Check from "@/components/check-icon";
-import Ukraine from "@/components/ukrainian-flag";
-import Germany from "@/components/german-flag";
-import GreatBritain from "@/components/british-flag";
+import { CheckIcon, UkrainianFlag, GermanFlag, BritishFlag } from "@dach/svg";
 
 type IconProps = {
     locale: "en" | "uk" | "de";
@@ -17,13 +13,13 @@ type IconProps = {
 function Icon({ locale, size }: IconProps) {
     switch (locale) {
         case "en":
-            return <GreatBritain width={size} height={size} />;
+            return <BritishFlag width={size} height={size} />;
 
         case "de":
-            return <Germany width={size} height={size} />;
+            return <GermanFlag width={size} height={size} />;
 
         case "uk":
-            return <Ukraine width={size} height={size} />;
+            return <UkrainianFlag width={size} height={size} />;
     }
 }
 
@@ -60,7 +56,7 @@ export default function LanguageMenuItem({ locale, onClick }: Props) {
                 </div>
 
                 {selectedLocale === locale && (
-                    <Check strokeWidth={1.5} height={18} />
+                    <CheckIcon strokeWidth={1.5} height={18} />
                 )}
             </div>
         </button>

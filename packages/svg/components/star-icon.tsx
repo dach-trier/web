@@ -1,6 +1,6 @@
-import IconProps from "@/types/icon-props";
+import { type SVGProps } from "react";
 
-const StarIcon = (props: IconProps) => {
+const StarIcon = (props: SVGProps<SVGSVGElement>) => {
     const {
         fill = "currentColor",
         stroke = "currentColor",

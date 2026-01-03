@@ -1,0 +1,19 @@
+{
+    "name": "@dach/svg",
+    "version": "0.0.0",
+    "private": true,
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "scripts": {
+        "dev": "tsc --watch",
+        "build": "tsc"
+    },
+    "devDependencies": {
+        "@dach/typescript": "^0.0.0",
+        "typescript": "^5.9.3"
+    },
+    "peerDependencies": {
+        "react": "^19.2.0",
+        "react-dom": "^19.2.0"
+    }
+}
