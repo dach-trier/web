@@ -1,15 +1,9 @@
 import React from "react";
 
-const CarouselSlide = (
-    props: React.ComponentPropsWithRef<"div"> & { size?: string },
-) => {
-    const { className, size, style, ...rest } = props;
+const CarouselSlide = (props: React.ComponentPropsWithRef<"div">) => {
+    const { className, ...rest } = props;
     return (
-        <div
-            style={{ flex: `0 0 ${size ?? "100%"}`, ...style }}
-            className={`embla__slide select-none ${className}`}
-            {...rest}
-        />
+        <div className={`embla__slide ${className}`} {...rest} />
     );
 };
 

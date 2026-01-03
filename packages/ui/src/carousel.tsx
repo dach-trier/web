@@ -1,23 +1,21 @@
 "use client";
 
-import { ReactNode } from "react";
+import { ComponentPropsWithoutRef } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 
-type Props = {
-    children?: ReactNode;
-    width?: string | number;
-    height?: string | number;
-};
+type Props = ComponentPropsWithoutRef<"div">;
 
 const Carousel = (props: Props) => {
-    const { width, height, children } = props;
+    const { style = {}, className, children, ...restOfProps } = props;
+    const { overflow = "hidden", ...restOfStyle } = style;
     const [emblaRef] = useEmblaCarousel({ loop: true });
 
     return (
         <div
-            style={{ width, height }}
-            className="embla overflow-hidden"
             ref={emblaRef}
+            className={`embla ${className}`}
+            style={{ overflow, ...restOfStyle }}
+            {...restOfProps}
         >
             <div className="embla__container flex">{children}</div>
         </div>
