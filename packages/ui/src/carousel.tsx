@@ -3,12 +3,20 @@
 import { ComponentPropsWithoutRef } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 
-type Props = ComponentPropsWithoutRef<"div">;
+type Props = ComponentPropsWithoutRef<"div"> & {
+    align?: "start" | "center" | "end";
+};
 
 const Carousel = (props: Props) => {
-    const { style = {}, className, children, ...restOfProps } = props;
+    const {
+        style = {},
+        className,
+        children,
+        align = "center",
+        ...restOfProps
+    } = props;
     const { overflow = "hidden", ...restOfStyle } = style;
-    const [emblaRef] = useEmblaCarousel({ loop: true });
+    const [emblaRef] = useEmblaCarousel({ loop: true, align });
 
     return (
         <div
