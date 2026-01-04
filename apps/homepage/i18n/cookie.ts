@@ -1,7 +1,6 @@
 "use server";
 
 import { cookies } from "next/headers";
-import i18nConfig from "@/i18n.config";
 
 export async function postLocale(locale: string) {
     const store = await cookies();
@@ -12,7 +11,7 @@ export async function postLocale(locale: string) {
         return {};
     }
 
-    if (!i18nConfig.locales.includes(locale))
+    if (locale !== "en" && locale !== "de" && locale !== "uk")
         return { error: { message: "invalid locale" } };
 
     store.set("NEXT_LOCALE", locale);

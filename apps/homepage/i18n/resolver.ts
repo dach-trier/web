@@ -11,13 +11,14 @@ import i18nConfig from "@/i18n.config";
  */
 export function resolveLocale(
     headers: Headers,
-    cookies: RequestCookies,
+    cookies: RequestCookies
 ): string {
     const locales = extractLocales(headers, cookies);
     let fallback = i18nConfig.default;
 
     for (const locale of locales) {
-        if (i18nConfig.locales.includes(locale)) return locale;
+        if (locale === "en" || locale === "de" || locale === "uk")
+            return locale;
 
         // A significant number of Ukrainian-speaking users may have Russian as their
         // primary language. Since Russian isn't supported, next-intl would normally
