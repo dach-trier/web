@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+body {
+    overflow-x: hidden;
+}
+
 :root {
     --content-padding: 25px;
 }
