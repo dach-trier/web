@@ -2,18 +2,25 @@
 
 import { RefObject, useState, useMemo, useEffect } from "react";
 
+type Props = {
+    initial?: boolean | undefined;
+    rootMargin?: string | undefined;
+    threshold?: number | undefined;
+};
+
 export default function useIntersectionObserver<T extends HTMLElement>(
     ref: RefObject<T | null>,
-    initial: boolean = false
+    { initial = false, rootMargin = "0px", threshold = 0.0 }: Props = {}
 ) {
     const [isIntersecting, setIsIntersecting] = useState<boolean>(initial);
 
     const observer = useMemo(
         () =>
-            new IntersectionObserver(([entry]) =>
-                setIsIntersecting(entry!.isIntersecting)
+            new IntersectionObserver(
+                ([entry]) => setIsIntersecting(entry!.isIntersecting),
+                { rootMargin, threshold }
             ),
-        [ref]
+        [ref, rootMargin, threshold]
     );
 
     useEffect(() => {
