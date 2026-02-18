@@ -3,9 +3,10 @@
 import { RefObject, useState, useMemo, useEffect } from "react";
 
 export default function useIntersectionObserver<T extends HTMLElement>(
-    ref: RefObject<T | null>
+    ref: RefObject<T | null>,
+    initial: boolean = false
 ) {
-    const [isIntersecting, setIsIntersecting] = useState<boolean>(false);
+    const [isIntersecting, setIsIntersecting] = useState<boolean>(initial);
 
     const observer = useMemo(
         () =>
