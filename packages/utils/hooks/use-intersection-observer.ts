@@ -2,7 +2,9 @@
 
 import { RefObject, useState, useMemo, useEffect } from "react";
 
-export default function useIntersectionObserver(ref: RefObject<HTMLElement>) {
+export default function useIntersectionObserver<T extends HTMLElement>(
+    ref: RefObject<T | null>
+) {
     const [isIntersecting, setIsIntersecting] = useState<boolean>(false);
 
     const observer = useMemo(
@@ -14,6 +16,8 @@ export default function useIntersectionObserver(ref: RefObject<HTMLElement>) {
     );
 
     useEffect(() => {
+        if (!ref.current)
+            return;
         observer.observe(ref.current);
         return () => observer.disconnect();
     }, []);
