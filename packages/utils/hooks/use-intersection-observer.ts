@@ -16,11 +16,10 @@ export default function useIntersectionObserver<T extends HTMLElement>(
     );
 
     useEffect(() => {
-        if (!ref.current)
-            return;
+        if (!ref.current) return;
         observer.observe(ref.current);
         return () => observer.disconnect();
-    }, []);
+    }, [ref]);
 
     return isIntersecting;
 }
