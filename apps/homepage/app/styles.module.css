@@ -5,60 +5,73 @@
 .header {
     top: 0;
     z-index: 1000;
-    position: sticky;
+    position: fixed;
+    width: 100vw;
     height: 48px;
 
     display: flex;
     align-items: center;
-    justify-content: space-between;
-
-    padding: 0 12px;
+    padding: 0 20px;
 
     background: white;
 }
 
-.header > svg {
+@media (min-width: 768px) {
+    .header {
+        justify-content: center;
+        gap: 50px;
+    }
+}
+
+.header > :first-child,
+.header > :last-child {
+    flex: 1;
+}
+
+.header > :first-child {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.header > :last-child {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+
+@media (min-width: 768px) {
+    .header > :first-child {
+        flex-direction: row-reverse;
+    }
+
+    .header > :last-child {
+        flex-direction: row;
+    }
+}
+
+.header .logo {
     height: 30px;
+    transition: opacity 0.15s ease-in-out;
 }
 
 .header .links {
     display: none;
 }
 
-.header .donate {
-    display: flex;
-    gap: 8px;
-}
-
-.header .donate > * {
-    color: var(--color-red-500);
-}
-
-.header .donate > svg {
-    fill: var(--color-red-500);
-    width: 30px;
-    height: 30px;
-}
-
-.header .donate > span {
-    display: none;
-    margin-top: 3px;
-}
-
-@media (min-width: 768) {
-    .header {
-        justify-content: center;
-        gap: 50px;
-    }
-
+@media (min-width: 768px) {
     .header .links {
         display: flex;
         gap: 30px;
     }
+}
 
-    .header .donate > span {
-        display: initial;
-    }
+.header .donate {
+    width: 30px;
+    height: 30px;
+    color: var(--color-red-500);
+    fill: var(--color-red-500);
+    transition: opacity 0.15s ease-in-out;
 }
 
 /**
@@ -66,8 +79,37 @@
  */
 
 .hero {
-    width: fit-content;
+    width: 100vw;
+    height: calc(100vh - 48px);
+    min-height: 764px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero .logo {
+    width: 70%;
     margin: 0 auto;
+}
+
+@media (min-width: 440px) {
+    .hero .logo {
+        width: 400px;
+    }
+}
+
+@media (min-width: 768px) {
+    .hero .logo {
+        width: 440px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .hero .logo {
+        width: 480px;
+    }
 }
 
 .hero > h1 {
@@ -88,43 +130,6 @@
     text-align: center;
 }
 
-.hero .button-group {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 25px;
-}
-
-.hero .button-group > button {
-    width: 200px;
-    padding: 8px 0;
-    outline: 2px solid var(--color-blue-600);
-    border-radius: 8px;
-}
-
-.hero .button-group > :nth-child(1) {
-    color: white;
-    background: var(--color-blue-600);
-}
-
-.hero .button-group > :nth-child(2) {
-    color: var(--color-blue-600);
-    background: white;
-}
-
-@media (min-width: 440px) {
-    .hero .button-group {
-        flex-direction: row;
-        gap: 50px;
-    }
-
-    .hero .button-group > button {
-        width: fit-content;
-        padding: 8px 30px;
-    }
-}
-
 @media (min-width: 768px) {
     .hero > h1 {
         font-size: 36px;
@@ -132,10 +137,6 @@
 
     .hero > p {
         font-size: 20px;
-    }
-
-    .hero button {
-        font-size: 18px;
     }
 }
 
@@ -147,6 +148,67 @@
     .hero > p {
         font-size: 22px;
     }
+}
+
+.hero .button-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+
+@media (min-width: 480px) {
+    .hero .button-group {
+        flex-direction: row;
+        gap: 50px;
+    }
+}
+
+.hero .button-group > button {
+    width: 200px;
+    padding: 8px 0;
+    border-radius: 8px;
+}
+
+@media (min-width: 768px) {
+    .hero .button-group > button {
+        width: fit-content;
+        padding: 8px 30px;
+        font-size: 18px;
+    }
+}
+
+.hero .button-group > :nth-child(1) {
+    color: white;
+    background: var(--color-blue-600);
+    outline: 2px solid var(--color-blue-600);
+}
+
+.hero .button-group > :nth-child(2) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    color: white;
+    outline: 2px solid var(--color-red-500);
+    background: var(--color-red-500);
+}
+
+.hero .button-group > :nth-child(2) > .heart-icon {
+    width: 25px;
+    fill: white;
+    stroke-width: 1.5;
+}
+
+@media (min-width: 768px) {
+    .hero .button-group > :nth-child(2) > .heart-icon {
+        width: 27px;
+    }
+}
+
+.hero .button-group > :nth-child(2) > span {
+    margin-top: 1px;
 }
 
 /**

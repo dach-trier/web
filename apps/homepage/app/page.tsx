@@ -1,12 +1,27 @@
+"use client";
+
 import styles from "./styles.module.css";
+import { RefObject, useRef } from "react";
 import { Carousel, CarouselSlide } from "@dach/ui";
 import { DachLogo, HeartIcon } from "@dach/svg";
+import { useIntersectionObserver } from "@dach/utils";
+
 import Section from "./section";
 
-const Header = () => {
+type HeaderProps = {
+    showLogo?: boolean | undefined;
+    showDonationButton?: boolean | undefined;
+};
+
+const Header = (props: HeaderProps) => {
     return (
         <div className={styles["header"]}>
-            <DachLogo />
+            <div>
+                <DachLogo
+                    style={{ opacity: props.showLogo ?? true ? 1 : 0 }}
+                    className={styles["logo"]}
+                />
+            </div>
 
             <div className={styles["links"]}>
                 <span>Арт Майстерня</span>
@@ -15,31 +30,16 @@ const Header = () => {
                 <span>Музичний Бенд</span>
             </div>
 
-            <span className={styles["donate"]}>
-                <HeartIcon width="25px" />
-                <span>Donate</span>
-            </span>
-        </div>
-    );
-};
-
-const Hero = () => {
-    return (
-        <div className={styles["hero"]}>
-            <h1>Українсько-німецький ферайн «Дах»</h1>
-
-            <div className="h-5" />
-
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
-                pretium sapien risus, ut malesuada nisi facilisis quis
-            </p>
-
-            <div className="h-8" />
-
-            <div className={styles["button-group"]}>
-                <button>Вступити</button>
-                <button>Зв'язатися з нами</button>
+            <div>
+                <HeartIcon
+                    className={styles["donate"]}
+                    width="30px"
+                    fill="red"
+                    stroke="red"
+                    style={{
+                        opacity: props.showDonationButton ?? true ? 1 : 0,
+                    }}
+                />
             </div>
         </div>
     );
@@ -85,13 +85,57 @@ const Footer = () => {
     );
 };
 
-export default async function Page() {
+/**
+ * Custom Intersection Observer hook that accounts
+ * for a sticky <Header /> offset.
+ */
+function useCustomIntersectionObserver<T extends HTMLElement>(
+    ref: RefObject<T | null>
+) {
+    return useIntersectionObserver(ref, {
+        initial: true,
+        rootMargin: "-48px 0px 0px 0px",
+    });
+}
+
+export default function Page() {
+    const logoRef = useRef(null);
+    const buttonGroupRef = useRef(null);
+    const logoInView = useCustomIntersectionObserver(logoRef);
+    const buttonGroupInView = useCustomIntersectionObserver(buttonGroupRef);
+
     return (
         <>
-            <Header />
-            <div className="h-[15vh]" />
-            <Hero />
-            <div className="h-[20vh]" />
+            <Header
+                showLogo={!logoInView}
+                showDonationButton={!buttonGroupInView}
+            />
+
+            <div className={styles["hero"]}>
+                <DachLogo ref={logoRef} className={styles["logo"]} />
+
+                <div className="h-10" />
+
+                <h1>Українсько-німецький ферайн «Дах»</h1>
+
+                <div className="h-5" />
+
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Duis pretium sapien risus, ut malesuada nisi facilisis quis
+                </p>
+
+                <div className="h-8" />
+
+                <div ref={buttonGroupRef} className={styles["button-group"]}>
+                    <button>Зв'язатися з нами</button>
+                    <button>
+                        <HeartIcon className={styles["heart-icon"]} />
+                        <span>Підтримати</span>
+                    </button>
+                </div>
+            </div>
+
             <Posts />
 
             <Section
@@ -99,31 +143,24 @@ export default async function Page() {
                 content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pretium sapien risus, ut malesuada nisi facilisis quis. Vivamus dignissim erat et vulputate tristique. In eros urna, efficitur vitae fermentum ut, blandit id justo. Donec blandit nunc pulvinar ipsum ultrices vestibulum. Nam nec lectus vitae justo finibus auctor tristique vel arcu. Vivamus pulvinar est ipsum, non finibus purus suscipit vel. Maecenas ultricies bibendum velit sit amet efficitur."
                 alignment="end"
             />
-
             <Section
                 heading="Берегиня"
                 content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pretium sapien risus, ut malesuada nisi facilisis quis. Vivamus dignissim erat et vulputate tristique. In eros urna, efficitur vitae fermentum ut, blandit id justo. Donec blandit nunc pulvinar ipsum ultrices vestibulum. Nam nec lectus vitae justo finibus auctor tristique vel arcu. Vivamus pulvinar est ipsum, non finibus purus suscipit vel. Maecenas ultricies bibendum velit sit amet efficitur."
                 alignment="start"
             />
-
             <Section
                 heading="Табір"
                 content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pretium sapien risus, ut malesuada nisi facilisis quis. Vivamus dignissim erat et vulputate tristique. In eros urna, efficitur vitae fermentum ut, blandit id justo. Donec blandit nunc pulvinar ipsum ultrices vestibulum. Nam nec lectus vitae justo finibus auctor tristique vel arcu. Vivamus pulvinar est ipsum, non finibus purus suscipit vel. Maecenas ultricies bibendum velit sit amet efficitur."
                 alignment="end"
             />
-
             <Section
                 heading="Музичний Бенд"
                 content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pretium sapien risus, ut malesuada nisi facilisis quis. Vivamus dignissim erat et vulputate tristique. In eros urna, efficitur vitae fermentum ut, blandit id justo. Donec blandit nunc pulvinar ipsum ultrices vestibulum. Nam nec lectus vitae justo finibus auctor tristique vel arcu. Vivamus pulvinar est ipsum, non finibus purus suscipit vel. Maecenas ultricies bibendum velit sit amet efficitur."
                 alignment="start"
             />
-
             <div className="h-40" />
-
             <ContactUs />
-
             <div className="h-40" />
-
             <Footer />
         </>
     );
