@@ -7,8 +7,7 @@
         "configs/*"
     ],
     "devDependencies": {
-        "@svgr/cli": "^8.1.0",
-        "turbo": "^2.7.2"
+        "turbo": "^2.8.10"
     },
-    "packageManager": "npm@11.7.0"
+    "packageManager": "npm@11.10.0"
 }
