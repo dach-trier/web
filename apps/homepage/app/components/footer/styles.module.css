@@ -1,0 +1,23 @@
+/**
+ * <Footer />
+ */
+
+.footer {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+
+    padding: 20px 40px;
+    color: white;
+    background: black;
+}
+
+@media (min-width: 768) {
+    .footer {
+        padding: 20px;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}

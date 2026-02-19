@@ -1,0 +1,75 @@
+/**
+ * <Header />
+ */
+
+.header {
+    top: 0;
+    z-index: 1000;
+    position: fixed;
+    width: 100vw;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+
+    background: white;
+}
+
+@media (min-width: 768px) {
+    .header {
+        justify-content: center;
+        gap: 50px;
+    }
+}
+
+.header > :first-child,
+.header > :last-child {
+    flex: 1;
+}
+
+.header > :first-child {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.header > :last-child {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+
+@media (min-width: 768px) {
+    .header > :first-child {
+        flex-direction: row-reverse;
+    }
+
+    .header > :last-child {
+        flex-direction: row;
+    }
+}
+
+.header .logo {
+    height: 30px;
+    transition: opacity 0.15s ease-in-out;
+}
+
+.header .links {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .header .links {
+        display: flex;
+        gap: 30px;
+    }
+}
+
+.header .donate {
+    width: 30px;
+    height: 30px;
+    color: var(--color-red-500);
+    fill: var(--color-red-500);
+    transition: opacity 0.15s ease-in-out;
+}

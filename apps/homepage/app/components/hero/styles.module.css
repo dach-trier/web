@@ -1,0 +1,136 @@
+/**
+ * <Hero />
+ */
+
+.hero {
+    width: 100vw;
+    height: calc(100vh - 48px);
+    min-height: 764px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero .logo {
+    width: 70%;
+    margin: 0 auto;
+}
+
+@media (min-width: 440px) {
+    .hero .logo {
+        width: 400px;
+    }
+}
+
+@media (min-width: 768px) {
+    .hero .logo {
+        width: 440px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .hero .logo {
+        width: 480px;
+    }
+}
+
+.hero > h1 {
+    text-align: center;
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 40px;
+    margin: 0 auto;
+}
+
+.hero > p {
+    max-width: 650px;
+    padding: 0 30px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 18px;
+    color: #777;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .hero > h1 {
+        font-size: 36px;
+    }
+
+    .hero > p {
+        font-size: 20px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .hero > h1 {
+        font-size: 45px;
+    }
+
+    .hero > p {
+        font-size: 22px;
+    }
+}
+
+.hero .button-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+
+@media (min-width: 480px) {
+    .hero .button-group {
+        flex-direction: row;
+        gap: 50px;
+    }
+}
+
+.hero .button-group > button {
+    width: 200px;
+    padding: 8px 0;
+    border-radius: 8px;
+}
+
+@media (min-width: 768px) {
+    .hero .button-group > button {
+        width: fit-content;
+        padding: 8px 30px;
+        font-size: 18px;
+    }
+}
+
+.hero .button-group > :nth-child(1) {
+    color: white;
+    background: var(--color-blue-600);
+    outline: 2px solid var(--color-blue-600);
+}
+
+.hero .button-group > :nth-child(2) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    color: white;
+    outline: 2px solid var(--color-red-500);
+    background: var(--color-red-500);
+}
+
+.hero .button-group > :nth-child(2) > .heart-icon {
+    width: 25px;
+    fill: white;
+    stroke-width: 1.5;
+}
+
+@media (min-width: 768px) {
+    .hero .button-group > :nth-child(2) > .heart-icon {
+        width: 27px;
+    }
+}
+
+.hero .button-group > :nth-child(2) > span {
+    margin-top: 1px;
+}

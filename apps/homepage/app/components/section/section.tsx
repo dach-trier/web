@@ -4,7 +4,7 @@ import styles from "./styles.module.css";
 import { useViewport } from "@/components/viewport-observer";
 import { Carousel, CarouselSlide } from "@dach/ui";
 
-type SectionProps = {
+export type SectionProps = {
     alignment: "start" | "end";
     heading: string;
     content: string;

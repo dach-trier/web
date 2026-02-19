@@ -1,0 +1,120 @@
+/**
+ * <Section />
+ */
+
+.section {
+    margin-top: 100px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+@media (min-width: 1024px) {
+    .section {
+        margin-top: 150px;
+    }
+
+    .section-left {
+        flex-direction: row-reverse;
+    }
+
+    .section-right {
+        flex-direction: row;
+    }
+}
+
+@media (min-width: 1280px) {
+    .section {
+        width: 95%;
+    }
+
+    .section-left {
+        margin-right: auto;
+    }
+
+    .section-right {
+        margin-left: auto;
+    }
+}
+
+.section > .content {
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 20px;
+}
+
+@media (min-width: 1024px) {
+    .section > .content {
+        width: 55%;
+    }
+}
+
+.section > .content > h1 {
+    font-size: 30px;
+    font-weight: 600;
+}
+
+@media (min-width: 1024px) {
+    .section > .content > h1 {
+        font-size: 60px;
+    }
+
+    .section > .content > p {
+        font-size: 18px;
+    }
+}
+
+@media (min-width: 1280px) {
+    .section > .content > h1 {
+        font-size: 65px;
+    }
+
+    .section > .content > p {
+        font-size: 20px;
+    }
+}
+
+.section > .slides {
+    width: 100%;
+}
+
+@media (min-width: 1024px) {
+    .section > .slides {
+        width: 45%;
+    }
+}
+
+.section > .slides .slide {
+    flex: 0 0 100%;
+    max-width: 310px;
+    height: 560px;
+    padding: 0 20px;
+}
+
+@media (min-width: 330px) {
+    .section > .slides .slide {
+        padding: 0 0 0 20px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .section > .slides .slide {
+        padding: 0 20px;
+    }
+}
+
+.section > .slides .slide > div {
+    width: 100%;
+    height: 100%;
+    border: 2px solid #000;
+    border-radius: 30px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 30px;
+}
