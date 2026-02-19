@@ -1,5 +1,6 @@
 import { PageContextProvider } from "./context";
 import { Header, Hero, Posts, Section, ContactUs, Footer } from "./components";
+import { Spacing } from "@dach/ui";
 
 export default function Page() {
     return (
@@ -32,9 +33,9 @@ export default function Page() {
                 alignment="start"
             />
 
-            <div className="h-40" />
+            <Spacing vertical={160} />
             <ContactUs />
-            <div className="h-40" />
+            <Spacing vertical={160} />
             <Footer />
         </PageContextProvider>
     );
