@@ -1,6 +1,6 @@
 "use client";
 
-import { RefObject, useState, useMemo, useEffect } from "react";
+import { RefObject, useState, useEffect } from "react";
 
 type Props = {
     initial?: boolean | undefined;
@@ -14,20 +14,15 @@ export default function useIntersectionObserver<T extends HTMLElement>(
 ) {
     const [isIntersecting, setIsIntersecting] = useState<boolean>(initial);
 
-    const observer = useMemo(
-        () =>
-            new IntersectionObserver(
-                ([entry]) => setIsIntersecting(entry!.isIntersecting),
-                { rootMargin, threshold }
-            ),
-        [ref, rootMargin, threshold]
-    );
-
     useEffect(() => {
         if (!ref.current) return;
+        const observer = new IntersectionObserver(
+            ([entry]) => setIsIntersecting(entry!.isIntersecting),
+            { rootMargin, threshold }
+        );
         observer.observe(ref.current);
         return () => observer.disconnect();
-    }, [ref]);
+    }, [ref, rootMargin, threshold]);
 
     return isIntersecting;
 }
