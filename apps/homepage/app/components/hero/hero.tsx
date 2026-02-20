@@ -11,11 +11,14 @@ import { useCustomIntersectionObserver } from "@root/hooks";
 const Hero = () => {
     const pageContext          = usePageContext();
     const logoRef              = useRef(null);
-    const buttonGroupRef       = useRef(null);
+    const contactButtonRef     = useRef(null);
+    const donationButtonRef    = useRef(null);
     const logoInView           = useCustomIntersectionObserver(logoRef);
-    const donationButtonInView = useCustomIntersectionObserver(buttonGroupRef);
+    const contactButtonInView  = useCustomIntersectionObserver(contactButtonRef);
+    const donationButtonInView = useCustomIntersectionObserver(donationButtonRef);
 
     useEffect(() => pageContext.setLogoInView(logoInView), [logoInView]);
+    useEffect(() => pageContext.setContactButtonInView(contactButtonInView), [contactButtonInView]);
     useEffect(() => pageContext.setDonationButtonInView(donationButtonInView), [donationButtonInView]);
 
     return (
@@ -35,12 +38,12 @@ const Hero = () => {
 
             <div className="h-8" />
 
-            <div ref={buttonGroupRef} className={styles["button-group"]}>
-                <button className={styles["contact-us"]}>
+            <div className={styles["button-group"]}>
+                <button ref={contactButtonRef} className={styles["contact-us"]}>
                     <PhoneIcon className={styles["phone-icon"]}/>
                     <span>Зв'язатися</span>
                 </button>
-                <button className={styles["donate"]}>
+                <button ref={donationButtonRef} className={styles["donate"]}>
                     <HeartIcon className={styles["heart-icon"]} />
                     <span>Підтримати</span>
                 </button>

@@ -1,7 +1,7 @@
 "use client";
 
 import styles from "./styles.module.css";
-import { DachLogo, HeartIcon } from "@dach/svg";
+import { DachLogo, PhoneIcon, HeartIcon } from "@dach/svg";
 import { usePageContext } from "@root/context";
 
 const Header = () => {
@@ -26,13 +26,18 @@ const Header = () => {
             <div>
                 <HeartIcon
                     className={styles["donate"]}
-                    width="30px"
-                    fill="red"
-                    stroke="red"
                     style={{
                         opacity: pageContext.donationButtonInView ? 0 : 1,
                     }}
                 />
+
+                <PhoneIcon
+                    className={styles["contact-us"]}
+                    style={{
+                        opacity: pageContext.contactButtonInView ? 0 : 1,
+                    }}
+                />
+
             </div>
         </div>
     );
