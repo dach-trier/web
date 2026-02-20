@@ -92,14 +92,14 @@
 
 .button-group > button {
     width: 200px;
-    padding: 8px 0;
+    height: 48px;
     border-radius: 8px;
 }
 
 @media (min-width: 768px) {
     .button-group > button {
         width: fit-content;
-        padding: 8px 30px;
+        padding: 0 30px;
         font-size: 18px;
     }
 }
@@ -107,7 +107,6 @@
 .contact-us {
     color: white;
     background: var(--color-blue-600);
-    outline: 2px solid var(--color-blue-600);
 }
 
 .donate {
@@ -116,7 +115,6 @@
     align-items: center;
     gap: 12px;
     color: white;
-    outline: 2px solid var(--color-red-500);
     background: var(--color-red-500);
 }
 
