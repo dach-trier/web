@@ -30,24 +30,24 @@
 
 .header > :first-child {
     display: flex;
-    flex-direction: row;
+    justify-content: start;
     align-items: center;
 }
 
 .header > :last-child {
     display: flex;
-    flex-direction: row-reverse;
+    justify-content: end;
     align-items: center;
     gap: 20px;
 }
 
 @media (min-width: 768px) {
     .header > :first-child {
-        flex-direction: row-reverse;
+        justify-content: end;
     }
 
     .header > :last-child {
-        flex-direction: row;
+        justify-content: start;
     }
 }
 
