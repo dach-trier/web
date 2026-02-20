@@ -11,5 +11,6 @@ export { default as ChevronDownIcon } from "./components/chevron-down-icon";
 export { default as GlobeIcon } from "./components/globe-icon";
 export { default as HeartIcon } from "./components/heart-icon";
 export { default as StarIcon } from "./components/star-icon";
+export { default as PhoneIcon } from "./components/phone-icon";
 
 export { default as LocationMap } from "./components/location-map";

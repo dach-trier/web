@@ -105,8 +105,23 @@
 }
 
 .contact-us {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
     color: white;
     background: var(--color-blue-600);
+}
+
+.contact-us > .phone-icon {
+    width: 25px;
+    fill: white;
+}
+
+@media (min-width: 768px) {
+    .contact-us > .phone-icon {
+        width: 27px;
+    }
 }
 
 .donate {
