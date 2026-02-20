@@ -50,23 +50,23 @@
     }
 }
 
-.header .logo {
+.logo {
     height: 30px;
     transition: opacity 0.15s ease-in-out;
 }
 
-.header .links {
+.links {
     display: none;
 }
 
 @media (min-width: 768px) {
-    .header .links {
+    .links {
         display: flex;
         gap: 30px;
     }
 }
 
-.header .donate {
+.donate {
     width: 30px;
     height: 30px;
     color: var(--color-red-500);
