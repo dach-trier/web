@@ -13,6 +13,7 @@ const Header = () => {
                 <DachLogo
                     style={{ opacity: pageContext.logoInView ? 0 : 1 }}
                     className={styles["logo"]}
+                    onClick={() => scrollTo({ top: 0, behavior: "smooth" })}
                 />
             </div>
 
@@ -37,7 +38,6 @@ const Header = () => {
                         opacity: pageContext.contactButtonInView ? 0 : 1,
                     }}
                 />
-
             </div>
         </div>
     );
