@@ -12,7 +12,7 @@ const Footer = () => {
 
             <div>
                 <div className={styles["copyright"]}>
-                    Copyright (c) {(new Date()).getFullYear()} «DACH» e.V. Trier. All Rights Reserved.
+                    <span className="relative text-lg top-px mr-0.5">©</span> {(new Date()).getFullYear()} «DACH» e.V. Trier. All Rights Reserved.
                 </div>
 
                 <div className={styles["socials"]}>
