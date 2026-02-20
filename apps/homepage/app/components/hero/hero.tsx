@@ -9,21 +9,15 @@ import { useCustomIntersectionObserver } from "@root/hooks";
 // prettier-ignore
 
 const Hero = () => {
-    const pageContext          = usePageContext();
-    const logoRef              = useRef(null);
-    const contactButtonRef     = useRef(null);
-    const donationButtonRef    = useRef(null);
-    const logoInView           = useCustomIntersectionObserver(logoRef);
-    const contactButtonInView  = useCustomIntersectionObserver(contactButtonRef);
-    const donationButtonInView = useCustomIntersectionObserver(donationButtonRef);
+    const pageContext = usePageContext();
+    const ref         = useRef(null);
+    const inView      = useCustomIntersectionObserver(ref);
 
-    useEffect(() => pageContext.setLogoInView(logoInView), [logoInView]);
-    useEffect(() => pageContext.setContactButtonInView(contactButtonInView), [contactButtonInView]);
-    useEffect(() => pageContext.setDonationButtonInView(donationButtonInView), [donationButtonInView]);
+    useEffect(() => pageContext.setHeroInView(inView), [inView]);
 
     return (
-        <div className={styles["hero"]}>
-            <DachLogo ref={logoRef} className={styles["logo"]} />
+        <div ref={ref} className={styles["hero"]}>
+            <DachLogo className={styles["logo"]} />
 
             <div className="h-10" />
 
@@ -39,11 +33,11 @@ const Hero = () => {
             <div className="h-8" />
 
             <div className={styles["button-group"]}>
-                <button ref={contactButtonRef} className={styles["contact-us"]}>
+                <button className={styles["contact-us"]}>
                     <PhoneIcon className={styles["phone-icon"]}/>
                     <span>Зв'язатися</span>
                 </button>
-                <button ref={donationButtonRef} className={styles["donate"]}>
+                <button className={styles["donate"]}>
                     <HeartIcon className={styles["heart-icon"]} />
                     <span>Підтримати</span>
                 </button>

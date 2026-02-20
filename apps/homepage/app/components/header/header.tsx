@@ -1,45 +1,73 @@
 "use client";
 
 import styles from "./styles.module.css";
+import React from "react";
 import { DachLogo, PhoneIcon, HeartIcon } from "@dach/svg";
 import { usePageContext } from "@root/context";
+import { useFade } from "@dach/utils";
+import { Flipper, Flipped } from "react-flip-toolkit";
 
 const Header = () => {
-    const pageContext = usePageContext();
-
     return (
-        <div className={styles["header"]}>
-            <div>
+        <Items className={styles["header"]}>
+            <Item id="dach" redundant>
                 <DachLogo
-                    style={{ opacity: pageContext.logoInView ? 0 : 1 }}
                     className={styles["logo"]}
                     onClick={() => scrollTo({ top: 0, behavior: "smooth" })}
                 />
-            </div>
+            </Item>
 
-            <div className={styles["links"]}>
-                <span>Арт Майстерня</span>
-                <span>Берегиня</span>
-                <span>Табір</span>
-                <span>Музичний Бенд</span>
-            </div>
+            <Item id="links">
+                <div className={styles["links"]}>
+                    <span>Арт Майстерня</span>
+                    <span>Берегиня</span>
+                    <span>Табір</span>
+                    <span>Музичний Бенд</span>
+                </div>
+            </Item>
 
-            <div>
-                <HeartIcon
-                    className={styles["donate"]}
-                    style={{
-                        opacity: pageContext.donationButtonInView ? 0 : 1,
-                    }}
-                />
+            <Item id="donate" redundant>
+                <HeartIcon className={styles["donate"]} />
+            </Item>
 
-                <PhoneIcon
-                    className={styles["contact-us"]}
-                    style={{
-                        opacity: pageContext.contactButtonInView ? 0 : 1,
-                    }}
-                />
-            </div>
-        </div>
+            <Item id="contact-us" redundant>
+                <PhoneIcon className={styles["contact-us"]} />
+            </Item>
+        </Items>
+    );
+};
+
+const Items = ({ children, className }: any) => {
+    const { heroInView } = usePageContext();
+
+    return (
+        <Flipper flipKey={heroInView}>
+            <div className={className}>{children}</div>
+        </Flipper>
+    );
+};
+
+const Item = (props: any) => {
+    const { id, redundant, children } = props;
+    const [fadeIn, fadeOut] = useFade();
+
+    if (redundant && !usePageContext().heroInView) {
+        return;
+    }
+
+    return (
+        <Flipped
+            flipId={id}
+            onAppear={async (element) => {
+                await fadeIn(element, 200);
+            }}
+            onExit={async (element, _, removeElement) => {
+                await fadeOut(element, 200);
+                removeElement();
+            }}
+        >
+            {(flippedProps) => React.cloneElement(children, flippedProps)}
+        </Flipped>
     );
 };
 

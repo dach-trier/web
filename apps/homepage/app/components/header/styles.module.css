@@ -10,6 +10,7 @@
     height: 48px;
 
     display: flex;
+    justify-content: center;
     align-items: center;
     padding: 0 20px;
 
@@ -18,43 +19,13 @@
 
 @media (min-width: 768px) {
     .header {
-        justify-content: center;
         gap: 50px;
-    }
-}
-
-.header > :first-child,
-.header > :last-child {
-    flex: 1;
-}
-
-.header > :first-child {
-    display: flex;
-    justify-content: start;
-    align-items: center;
-}
-
-.header > :last-child {
-    display: flex;
-    justify-content: end;
-    align-items: center;
-    gap: 20px;
-}
-
-@media (min-width: 768px) {
-    .header > :first-child {
-        justify-content: end;
-    }
-
-    .header > :last-child {
-        justify-content: start;
     }
 }
 
 .logo {
     height: 30px;
     cursor: pointer;
-    transition: opacity 0.15s ease-in-out;
 }
 
 .links {
@@ -73,13 +44,10 @@
     height: 28px;
     color: var(--color-red-500);
     fill: var(--color-red-500);
-    transition: opacity 0.15s ease-in-out;
 }
 
 .contact-us {
     width: 25px;
     height: 25px;
     fill: var(--color-blue-500);
-    transition: opacity 0.15s ease-in-out;
 }
-
