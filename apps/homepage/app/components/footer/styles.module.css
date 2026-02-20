@@ -21,3 +21,13 @@
         justify-content: space-between;
     }
 }
+
+.credit a {
+    text-decoration: underline;
+    cursor: pointer;
+    color: var(--color-gray-300);
+}
+
+.credit a:hover {
+    color: var(--color-gray-400);
+}

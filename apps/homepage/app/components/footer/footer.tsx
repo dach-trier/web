@@ -1,13 +1,15 @@
 import styles from "./styles.module.css";
 
+// prettier-ignore
+
 const Footer = () => {
     return (
         <div className={styles["footer"]}>
-            <span>
-                Copyright (c) 2026 «DACH» e.V. Trier. All Rights Reserved.
-            </span>
-
-            <span>Designed and developed by @hiegz</span>
+            <div className={styles["credit"]}>
+                Designed and developed by <a href="https://github.com/hiegz" target="_blank">@hiegz</a>
+                <br /> <br />
+                Copyright (c) {(new Date()).getFullYear()} «DACH» e.V. Trier. All Rights Reserved.
+            </div>
         </div>
     );
 };
