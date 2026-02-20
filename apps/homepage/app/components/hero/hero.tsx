@@ -36,8 +36,8 @@ const Hero = () => {
             <div className="h-8" />
 
             <div ref={buttonGroupRef} className={styles["button-group"]}>
-                <button>Зв'язатися з нами</button>
-                <button>
+                <button className={styles["contact-us"]}>Зв'язатися з нами</button>
+                <button className={styles["donate"]}>
                     <HeartIcon className={styles["heart-icon"]} />
                     <span>Підтримати</span>
                 </button>
