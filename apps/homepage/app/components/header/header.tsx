@@ -51,7 +51,7 @@ const Item = (props: any) => {
     const { id, redundant, children } = props;
     const [fadeIn, fadeOut] = useFade();
 
-    if (redundant && !usePageContext().heroInView) {
+    if (redundant && usePageContext().heroInView) {
         return;
     }
 
