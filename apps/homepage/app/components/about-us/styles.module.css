@@ -1,0 +1,22 @@
+.about-us {
+    max-width: 1200px;
+    padding: 0 20px;
+    font-size: 18px;
+
+    margin-top: 13vh;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (min-width: 768px) {
+    .about-us {
+        font-size: 22px;
+        padding: 0 48px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .about-us {
+        font-size: 24px;
+    }
+}

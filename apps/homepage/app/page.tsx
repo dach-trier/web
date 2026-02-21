@@ -1,5 +1,5 @@
 import { PageContextProvider } from "./context";
-import { Header, Hero, Posts, Section, ContactUs, Footer } from "./components";
+import { Header, Hero, Posts, AboutUs, Section, ContactUs, Footer } from "./components";
 import { Spacing } from "@dach/ui";
 
 export default function Page() {
@@ -8,6 +8,7 @@ export default function Page() {
             <Header />
             <Hero />
             <Posts />
+            <AboutUs />
 
             <Section
                 heading="Арт Майстерня"
