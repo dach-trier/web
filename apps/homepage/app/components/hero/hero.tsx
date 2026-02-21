@@ -27,8 +27,8 @@ const Hero = () => {
             <h1>Українсько-німецький ферайн «Дах»</h1>
             <Spacing vertical={20} />
             <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
-                pretium sapien risus, ut malesuada nisi facilisis quis
+                Культурний простір об'єднання та інтеграції зростаючого
+                покоління
             </p>
             <Spacing vertical={32} />
             <div className={styles["button-group"]}>
