@@ -1,73 +1,38 @@
 "use client";
 
 import styles from "./styles.module.css";
-import React from "react";
 import { DachLogo, PhoneIcon, HeartIcon } from "@dach/svg";
+import { Spacing } from "@dach/ui";
 import { usePageContext } from "@root/context";
-import { useFade } from "@dach/utils";
-import { Flipper, Flipped } from "react-flip-toolkit";
+import { MotionList } from "./components";
+
+const Logo    = (props: any) => <DachLogo  className={styles["logo"]}       {...props} />
+const Donate  = (props: any) => <HeartIcon className={styles["donate"]}     {...props} />
+const Contact = (props: any) => <PhoneIcon className={styles["contact-us"]} {...props} />
 
 const Header = () => {
-    return (
-        <Items className={styles["header"]}>
-            <Item id="dach" redundant>
-                <DachLogo
-                    className={styles["logo"]}
-                    onClick={() => scrollTo({ top: 0, behavior: "smooth" })}
-                />
-            </Item>
-
-            <Item id="links">
-                <div className={styles["links"]}>
-                    <span>Арт Майстерня</span>
-                    <span>Берегиня</span>
-                    <span>Табір</span>
-                    <span>Музичний Бенд</span>
-                </div>
-            </Item>
-
-            <Item id="donate" redundant>
-                <HeartIcon className={styles["donate"]} />
-            </Item>
-
-            <Item id="contact-us" redundant>
-                <PhoneIcon className={styles["contact-us"]} />
-            </Item>
-        </Items>
-    );
-};
-
-const Items = ({ children, className }: any) => {
     const { heroInView } = usePageContext();
 
     return (
-        <Flipper flipKey={heroInView}>
-            <div className={className}>{children}</div>
-        </Flipper>
-    );
-};
+        <MotionList className={styles["header"]}>
+            {!heroInView && <Logo key="logo" onClick={() => scrollTo({ top: 0, behavior: "smooth" })}/>}
+            {!heroInView && <Spacing horizontal={32} />}
 
-const Item = (props: any) => {
-    const { id, redundant, children } = props;
-    const [fadeIn, fadeOut] = useFade();
+            <div key="links" className={styles["links"]}>
+                <span>Арт Майстерня</span>
+                <span>Берегиня</span>
+                <span>Табір</span>
+                <span>Музичний Бенд</span>
+            </div>
 
-    if (redundant && usePageContext().heroInView) {
-        return;
-    }
+            {/* Special spacing applied on smaller screens to separate the logo from the buttons */}
+            <div className={styles["spacing"]} />
 
-    return (
-        <Flipped
-            flipId={id}
-            onAppear={async (element) => {
-                await fadeIn(element, 200);
-            }}
-            onExit={async (element, _, removeElement) => {
-                await fadeOut(element, 200);
-                removeElement();
-            }}
-        >
-            {(flippedProps) => React.cloneElement(children, flippedProps)}
-        </Flipped>
+            {!heroInView && <Spacing horizontal={32} />}
+            {!heroInView && <Donate  key="donate" />}
+            {!heroInView && <Spacing horizontal={24} />}
+            {!heroInView && <Contact key="contact" />}
+        </MotionList>
     );
 };
 

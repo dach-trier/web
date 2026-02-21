@@ -17,12 +17,6 @@
     background: white;
 }
 
-@media (min-width: 768px) {
-    .header {
-        gap: 50px;
-    }
-}
-
 .logo {
     height: 30px;
     cursor: pointer;
@@ -36,6 +30,16 @@
     .links {
         display: flex;
         gap: 30px;
+    }
+}
+
+.spacing {
+    flex: 1;
+}
+
+@media (min-width: 768px) {
+    .spacing {
+        display: none;
     }
 }
 
