@@ -14,5 +14,6 @@ export { default as StarIcon } from "./components/star-icon";
 export { default as PhoneIcon } from "./components/phone-icon";
 export { default as InstagramIcon } from "./components/instagram-icon";
 export { default as FacebookIcon } from "./components/facebook-icon";
-
+export { default as ParentIcon } from "./components/parent-icon";
+export { default as GroupIcon } from "./components/group-icon";
 export { default as LocationMap } from "./components/location-map";
