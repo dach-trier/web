@@ -3,8 +3,8 @@
 import { useState, useContext, createContext, ReactNode } from "react";
 
 export type PageContextProps = {
-    heroInView: boolean;
-    setHeroInView(heroInView: boolean): void;
+    logoInView: boolean;
+    setLogoInView(logoInView: boolean): void;
 };
 
 const PageContext = createContext({} as PageContextProps);
@@ -16,11 +16,11 @@ export type PageContextProviderProps = {
 // prettier-ignore
 
 export function PageContextProvider(props: PageContextProviderProps) {
-    const [heroInView, setHeroInView] = useState(true);
+    const [logoInView, setLogoInView] = useState(true);
 
     return (
         <PageContext.Provider
-            value={{heroInView, setHeroInView}}
+            value={{logoInView, setLogoInView}}
         >
             {props.children}
         </PageContext.Provider>
