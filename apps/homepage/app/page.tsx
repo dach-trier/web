@@ -1,6 +1,5 @@
 import { PageContextProvider } from "./context";
-import { Header, Hero, Posts, AboutUs, Section, ContactUs, Footer } from "./components";
-import { Spacing } from "@dach/ui";
+import { Header, Hero, Posts, AboutUs, Section, Footer } from "./components";
 
 export default function Page() {
     return (
@@ -28,9 +27,6 @@ export default function Page() {
                 alignment="start"
             />
 
-            <Spacing vertical={160} />
-            <ContactUs />
-            <Spacing vertical={160} />
             <Footer />
         </PageContextProvider>
     );
