@@ -1,4 +1,5 @@
 import styles from "./styles.module.css";
+import { InstagramIcon, FacebookIcon } from "@dach/svg";
 
 const AboutUs = () => {
     return (
@@ -17,6 +18,17 @@ const AboutUs = () => {
                 ці труднощі, об'єднуючи українську та німецьку культури через
                 мистецтво, освіту та спільні проекти.
             </p>
+
+
+            <div className={styles["socials"]}>
+                <a href="" target="_blank">
+                    <InstagramIcon className={styles["instagram-icon"]} />
+                </a>
+
+                <a href="" target="_blank">
+                    <FacebookIcon className={styles["facebook-icon"]} />
+                </a>
+            </div>
         </div>
     );
 };

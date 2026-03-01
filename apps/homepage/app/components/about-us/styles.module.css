@@ -25,6 +25,7 @@
 
 .pasta {
     font-size: var(--text-lg);
+    text-align: justify;
 }
 
 .pasta > strong {
@@ -41,45 +42,39 @@
     }
 }
 
-.card-group {
+.socials {
+    margin-top: 40px;
+    margin-left: auto;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: 100px;
-    margin-top: 80px;
+    justify-content: space-between;
+    gap: 24px;
 }
 
-@media (min-width: 768px) {
-    .card-group {
-        flex-direction: row;
+@media (min-width: 480px) {
+    .socials {
+        gap: 34px;
     }
 }
 
-.card {
-    max-width: 400px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    text-align: center;
+.instagram-icon,
+.facebook-icon {
+    width: 44px;
+    height: 44px;
 }
 
-.card > .icon {
-    width: 200px;
+@media (min-width: 480px) {
+    .instagram-icon,
+    .facebook-icon {
+        width: 48px;
+        height: 48px;
+    }
 }
 
-.card > h3 {
-    font-weight: 500;
-    font-size: var(--text-2xl);
+.instagram-icon {
+    fill: #e1306c;
 }
 
-.card > p {
-    margin-top: 12px;
-    font-size: var(--text-lg);
-}
-
-@media (min-width: 768px) {
-    .card > p {
-        font-size: var(--text-xl); }
+.facebook-icon {
+    fill: var(--color-blue-600);
 }

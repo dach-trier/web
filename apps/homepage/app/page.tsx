@@ -1,5 +1,5 @@
 import { PageContextProvider } from "./context";
-import { Header, Hero, Posts, AboutUs, Section, Footer } from "./components";
+import { Header, Hero, Posts, AboutUs, Socials, Section, Footer } from "./components";
 
 export default function Page() {
     return (
