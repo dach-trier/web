@@ -5,8 +5,7 @@
 .header {
     top: 0;
     z-index: 1000;
-    position: fixed;
-    width: 100vw;
+    position: sticky;
     height: 48px;
 
     display: flex;

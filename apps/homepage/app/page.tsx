@@ -11,26 +11,20 @@ export default function Page() {
             <AboutUs />
 
             <Section
-                heading="Арт Майстерня"
-                content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pretium sapien risus, ut malesuada nisi facilisis quis. Vivamus dignissim erat et vulputate tristique. In eros urna, efficitur vitae fermentum ut, blandit id justo. Donec blandit nunc pulvinar ipsum ultrices vestibulum. Nam nec lectus vitae justo finibus auctor tristique vel arcu. Vivamus pulvinar est ipsum, non finibus purus suscipit vel. Maecenas ultricies bibendum velit sit amet efficitur."
-                alignment="end"
-            />
-
-            <Section
-                heading="Берегиня"
-                content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pretium sapien risus, ut malesuada nisi facilisis quis. Vivamus dignissim erat et vulputate tristique. In eros urna, efficitur vitae fermentum ut, blandit id justo. Donec blandit nunc pulvinar ipsum ultrices vestibulum. Nam nec lectus vitae justo finibus auctor tristique vel arcu. Vivamus pulvinar est ipsum, non finibus purus suscipit vel. Maecenas ultricies bibendum velit sit amet efficitur."
+                heading="Перша українська школа у трірі «Берегиня»"
+                content="Це культурно-освітній простір, створений у березні 2024 року за ініціативою об’єднання «DACH». Наша мета — дати змогу дітям українських родин у Німеччині зберегти рідну мову, культуру та зв’язок з Батьківщиною, успішно інтегруючись у нове суспільство"
                 alignment="start"
             />
 
             <Section
-                heading="Табір"
-                content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pretium sapien risus, ut malesuada nisi facilisis quis. Vivamus dignissim erat et vulputate tristique. In eros urna, efficitur vitae fermentum ut, blandit id justo. Donec blandit nunc pulvinar ipsum ultrices vestibulum. Nam nec lectus vitae justo finibus auctor tristique vel arcu. Vivamus pulvinar est ipsum, non finibus purus suscipit vel. Maecenas ultricies bibendum velit sit amet efficitur."
+                heading="Дитячі табори"
+                content="Запрошуємо дітей віком 9–16 років провести незабутні канікули в нашому таборі! Це місце, де панує дружба, тепло та любов до рідної культури, створене для відпочинку, розвитку та нових знайомств"
                 alignment="end"
             />
 
             <Section
-                heading="Музичний Бенд"
-                content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pretium sapien risus, ut malesuada nisi facilisis quis. Vivamus dignissim erat et vulputate tristique. In eros urna, efficitur vitae fermentum ut, blandit id justo. Donec blandit nunc pulvinar ipsum ultrices vestibulum. Nam nec lectus vitae justo finibus auctor tristique vel arcu. Vivamus pulvinar est ipsum, non finibus purus suscipit vel. Maecenas ultricies bibendum velit sit amet efficitur."
+                heading="Музичний молодіжний гурт"
+                content="Для творчого самовираження та розвитку музичних талантів ..."
                 alignment="start"
             />
 

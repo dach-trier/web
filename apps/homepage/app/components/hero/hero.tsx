@@ -16,21 +16,29 @@ const Logo = () => {
 
     useEffect(() => context.setLogoInView(inView), [inView]);
 
-    return <DachLogo ref={ref} className={styles["logo"]} />;
+    return (
+        <div ref={ref} className={styles["logo"]}>
+            <DachLogo />
+            <Spacing vertical={8} />
+            <span className={styles["letters"]}>
+                {[..."DACH"].map((letter, i) => (
+                    <span key={i}>{letter}</span>
+                ))}
+            </span>
+        </div>
+    )
 };
 
 const Hero = () => {
     return (
         <div className={styles["hero"]}>
             <Logo />
-            <Spacing vertical={40} />
-            <h1>Українсько-німецький ферайн «Дах»</h1>
-            <Spacing vertical={20} />
-            <p>
+
+            <p className={styles["slogan"]}>
                 Культурний простір об'єднання та інтеграції зростаючого
                 покоління
             </p>
-            <Spacing vertical={32} />
+
             <div className={styles["button-group"]}>
                 <button className={styles["contact-us"]}>
                     <PhoneIcon className={styles["phone-icon"]} />

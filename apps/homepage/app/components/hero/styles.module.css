@@ -4,8 +4,9 @@
 
 .hero {
     width: 100vw;
-    height: calc(100vh - 48px);
-    min-height: 764px;
+
+    margin-top: 60px;
+    margin-bottom: 100px;
 
     display: flex;
     flex-direction: column;
@@ -14,64 +15,56 @@
 }
 
 .logo {
-    width: 70%;
-    margin: 0 auto;
+    width: 230px;
 }
 
-@media (min-width: 440px) {
+@media (min-width: 480px) {
     .logo {
-        width: 330px;
+        width: 280px;
     }
 }
 
 @media (min-width: 768px) {
     .logo {
-        width: 380px;
+        width: 320px;
     }
 }
 
-@media (min-width: 1024px) {
-    .logo {
-        width: 400px;
-        margin-bottom: 20px;
+.logo > .letters {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+    font-size: 60px;
+    transform: scaleY(1.1);
+    line-height: 1;
+}
+
+@media (min-width: 480px) {
+    .logo > .letters {
+            font-size: 75px;
     }
 }
 
-.hero > h1 {
-    text-align: center;
-    font-size: 30px;
-    font-weight: 600;
-    line-height: 40px;
-    margin: 0 auto;
+@media (min-width: 768px) {
+    .logo > .letters {
+        font-size: 80px;
+    }
 }
 
-.hero > p {
-    max-width: 650px;
-    padding: 0 30px;
-    margin: 0 auto;
+.slogan {
+    max-width: 540px;
+    width: 90%;
+    margin: 36px auto;
     text-align: center;
-    font-size: 18px;
+    font-size: var(--text-xl);
     color: #777;
     text-align: center;
 }
 
 @media (min-width: 768px) {
-    .hero > h1 {
-        font-size: 36px;
-    }
-
-    .hero > p {
-        font-size: 20px;
-    }
-}
-
-@media (min-width: 1024px) {
-    .hero > h1 {
-        font-size: 45px;
-    }
-
-    .hero > p {
-        font-size: 22px;
+    .slogan {
+        font-size: var(--text-2xl);
     }
 }
 
@@ -94,13 +87,19 @@
     width: 200px;
     height: 48px;
     border-radius: 8px;
+    font-size: var(--text-base);
+}
+
+@media (min-width: 480px) {
+    .button-group > button {
+        width: fit-content;
+        padding: 0 30px;
+    }
 }
 
 @media (min-width: 768px) {
     .button-group > button {
-        width: fit-content;
-        padding: 0 30px;
-        font-size: 18px;
+        font-size: var(--text-lg);
     }
 }
 

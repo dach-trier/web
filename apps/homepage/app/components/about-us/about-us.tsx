@@ -1,5 +1,4 @@
 import styles from "./styles.module.css";
-import { GroupIcon, ParentIcon } from "@dach/svg";
 
 const AboutUs = () => {
     return (
@@ -18,33 +17,6 @@ const AboutUs = () => {
                 ці труднощі, об'єднуючи українську та німецьку культури через
                 мистецтво, освіту та спільні проекти.
             </p>
-
-            <div className={styles["card-group"]}>
-                <div className={styles["card"]}>
-                    <GroupIcon
-                        strokeWidth={1.8}
-                        stroke="var(--color-blue-500)"
-                        className={styles["icon"]}
-                    />
-                    <h3>Заходи для дітей та молоді</h3>
-                    <p>
-                        свята, екскурсії, волонтерські проекти, гуртки за
-                        інтересами
-                    </p>
-                </div>
-
-                <div className={styles["card"]}>
-                    <ParentIcon
-                        fill="var(--color-yellow-300)"
-                        className={styles["icon"]}
-                    />
-                    <h3>Підтримка для батьків</h3>
-                    <p>
-                        психологічна допомога, обмін досвідом, консультації з
-                        питань інтеграції
-                    </p>
-                </div>
-            </div>
         </div>
     );
 };
