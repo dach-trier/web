@@ -1,9 +1,14 @@
 .team {
-    width: fit-content;
+    width: calc(100% - 60px);
     margin-top: 120px;
     margin-left: auto;
     margin-right: auto;
-    padding: 0 20px;
+}
+
+@media (min-width: 1024px) {
+    .team {
+        width: 960px;
+    }
 }
 
 .team > h1 {
@@ -12,7 +17,7 @@
     text-align: center;
 }
 
-@media (min-width: 590px) {
+@media (min-width: 420px) {
     .team > h1 {
         font-size: var(--text-3xl);
     }
@@ -24,7 +29,6 @@
     }
 }
 
-
 @media (min-width: 1024px) {
     .team > h1 {
         font-size: calc(var(--text-4xl) + 5px);
@@ -32,36 +36,30 @@
 }
 
 .people {
-    margin-top: 28px;
+    margin-top: 52px;
+
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px 40px;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: space-between;
+    gap: 60px 52px;
 }
 
-@media (min-width: 420px) {
+@media (min-width: 540px) {
     .people {
-        gap: 20px 60px;
-    }
-}
-
-@media (min-width: 590px) {
-    .people {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 50px;
+        grid-template-columns: repeat(3, 150px);
+        gap: 60px 0;
     }
 }
 
 @media (min-width: 768px) {
     .people {
-        margin-top: 36px;
+        grid-template-columns: repeat(4, 165px);
     }
 }
 
 @media (min-width: 1024px) {
     .people {
-        width: 960px;
-        grid-template-columns: repeat(4, 1fr);
-        margin-top: 40px;
+        grid-template-columns: repeat(4, 180px);
     }
 }
 
@@ -73,29 +71,8 @@
 }
 
 .avatar {
-    width: 125px;
-    height: 125px;
-}
-
-@media (min-width: 420px) {
-    .avatar {
-        width: 150px;
-        height: 150px;
-    }
-}
-
-@media (min-width: 768px) {
-    .avatar {
-        width: 175px;
-        height: 175px;
-    }
-}
-
-@media (min-width: 1024px) {
-    .avatar {
-        width: 180px;
-        height: 180px;
-    }
+    width: 100%;
+    aspect-ratio: 1 / 1;
 }
 
 .name {
