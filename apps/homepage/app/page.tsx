@@ -1,5 +1,5 @@
 import { PageContextProvider } from "./context";
-import { Header, Hero, Posts, AboutUs, Socials, Section, Footer } from "./components";
+import { Header, Hero, Posts, AboutUs, Team, Section, Footer } from "./components";
 
 export default function Page() {
     return (
@@ -26,6 +26,8 @@ export default function Page() {
                 content="Для творчого самовираження та розвитку музичних талантів ..."
                 alignment="start"
             />
+
+            <Team />
 
             <Footer />
         </PageContextProvider>

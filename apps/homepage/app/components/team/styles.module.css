@@ -1,0 +1,110 @@
+.team {
+    width: fit-content;
+    margin-top: 120px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 20px;
+}
+
+.team > h1 {
+    font-size: var(--text-2xl);
+    font-weight: 600;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .team > h1 {
+        font-size: var(--text-4xl);
+    }
+}
+
+
+@media (min-width: 1024px) {
+    .team > h1 {
+        font-size: var(--text-5xl);
+    }
+}
+
+.people {
+    margin-top: 28px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+@media (min-width: 550px) {
+    .people {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 50px;
+    }
+}
+
+@media (min-width: 768px) {
+    .people {
+        margin-top: 36px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .people {
+        margin-top: 40px;
+        gap: 72px;
+    }
+}
+
+.person {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.avatar {
+    width: 125px;
+    height: 125px;
+}
+
+@media (min-width: 768px) {
+    .avatar {
+        width: 175px;
+        height: 175px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .avatar {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+.name {
+    margin-top: 12px;
+    font-weight: 500;
+    font-size: var(--text-lg);
+}
+
+@media (min-width: 768px) {
+    .name {
+        font-size: var(--text-xl);
+        font-weight: 600;
+    }
+}
+
+@media (min-width: 1024px) {
+    .name {
+        font-size: var(--text-2xl);
+    }
+}
+
+@media (min-width: 768px) {
+    .role {
+        font-size: var(--text-lg);
+    }
+}
+
+@media (min-width: 1024px) {
+    .role {
+        font-size: var(--text-xl);
+    }
+}
