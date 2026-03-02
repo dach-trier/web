@@ -7,6 +7,7 @@ export { default as GermanFlag } from "./components/german-flag";
 export { default as UkrainianFlag } from "./components/ukrainian-flag";
 
 export { default as CheckIcon } from "./components/check-icon";
+export { default as CopyrightIcon } from "./components/copyright-icon";
 export { default as ChevronDownIcon } from "./components/chevron-down-icon";
 export { default as GlobeIcon } from "./components/globe-icon";
 export { default as HeartIcon } from "./components/heart-icon";
@@ -16,4 +17,5 @@ export { default as InstagramIcon } from "./components/instagram-icon";
 export { default as FacebookIcon } from "./components/facebook-icon";
 export { default as ParentIcon } from "./components/parent-icon";
 export { default as GroupIcon } from "./components/group-icon";
+export { default as DocumentIcon } from "./components/document-icon";
 export { default as LocationMap } from "./components/location-map";

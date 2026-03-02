@@ -15,50 +15,74 @@
 .footer {
     position: relative;
 
+    width: calc(100% - 60px);
     margin-top: 120px;
-    margin-left: 20px;
-    margin-right: 20px;
-
+    margin-left: auto;
+    margin-right: auto;
     padding: 20px 0;
 
     display: flex;
-    flex-direction: column;
-    gap: 8px;
+    flex-direction: column-reverse;
+    gap: 20px;
 
     font-size: var(--text-sm);
     line-height: 20px;
 }
 
-@media (min-width: 480px) {
+@media (min-width: 796px) {
     .footer {
-        margin-left: 40px;
-        margin-right: 40px;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
     }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
     .footer {
-        margin-left: 52px;
-        margin-right: 52px;
+        width: 960px;
     }
+}
+
+.legal {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
 @media (min-width: 796px) {
-    .footer {
-        flex-direction: row-reverse;
-        align-items: center;
-        justify-content: flex-end;
-        gap: 0;
+    .legal {
+        flex-direction: row;
+        gap: 32px;
     }
 }
 
-@media (min-width: 1000px) {
-    .footer {
-        width: 960px;
-        margin-left: auto;
-        margin-right: auto;
+.copyright {
+    display: inline-block;
+    gap: 4px;
+}
 
-    }
+.copyright-icon {
+    display: inline-block;
+    width: 18px;
+    transform: translateY(-1.5px);
+    margin-right: 0.2rem;
+    stroke: black;
+    stroke-width: 3;
+}
+
+.charter {
+    text-decoration: underline;
+    cursor: pointer;
+    color: var(--color-gray-500);
+}
+
+.document-icon {
+    display: inline-block;
+    width: 18px;
+    stroke: var(--color-gray-500);
+    stroke-width: 2;
+    transform: translateY(-2px);
+    margin-right: 0.4rem;
 }
 
 .credit > a {
@@ -67,35 +91,6 @@
     color: var(--color-gray-500);
 }
 
-@media (min-width: 796px) {
-    .credit {
-        margin-left: auto;
-    }
-}
-
 .credit > a:hover {
     color: var(--color-gray-400);
-}
-
-.legal {
-    margin-top: 16px;
-}
-
-@media (min-width: 796px) {
-    .legal {
-        margin-top: 0px;
-        margin-left: 20px;
-    }
-}
-
-@media (min-width: 860px) {
-    .legal {
-        margin-left: 52px;
-    }
-}
-
-@media (min-width: 1024px) {
-    .legal {
-        margin-left: 10%;
-    }
 }
