@@ -1,7 +1,6 @@
 .about-us {
-    max-width: 1000px;
-
-    padding: 0 20px;
+    max-width: 960px;
+    width: calc(100% - 40px);
     margin-top: 13vh;
     margin-left: auto;
     margin-right: auto;
@@ -11,15 +10,9 @@
     align-items: center;
 }
 
-@media (min-width: 650px) {
-    .about-us {
-        padding: 0 40px;
-    }
-}
-
 @media (min-width: 768px) {
     .about-us {
-        padding: 0 52px;
+        width: calc(100% - 160px);
     }
 }
 
