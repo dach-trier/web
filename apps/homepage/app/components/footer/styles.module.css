@@ -25,11 +25,10 @@
     flex-direction: column-reverse;
     gap: 20px;
 
-    font-size: var(--text-sm);
     line-height: 20px;
 }
 
-@media (min-width: 796px) {
+@media (min-width: 830px) {
     .footer {
         flex-direction: row;
         align-items: center;
@@ -49,7 +48,7 @@
     gap: 8px;
 }
 
-@media (min-width: 796px) {
+@media (min-width: 830px) {
     .legal {
         flex-direction: row;
         gap: 32px;
@@ -71,7 +70,6 @@
 }
 
 .charter {
-    text-decoration: underline;
     cursor: pointer;
     color: var(--color-gray-500);
 }
