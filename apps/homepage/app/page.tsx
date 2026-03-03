@@ -1,5 +1,5 @@
 import { PageContextProvider } from "./context";
-import { Header, Hero, Posts, AboutUs, Team, Section, Footer } from "./components";
+import { Header, Hero, Posts, AboutUs, Team, JoinUs, Section, Footer } from "./components";
 
 export default function Page() {
     return (
@@ -28,6 +28,7 @@ export default function Page() {
             />
 
             <Team />
+            <JoinUs />
 
             <Footer />
         </PageContextProvider>
