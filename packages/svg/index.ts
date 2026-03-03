@@ -6,6 +6,7 @@ export { default as BritishFlag } from "./components/british-flag";
 export { default as GermanFlag } from "./components/german-flag";
 export { default as UkrainianFlag } from "./components/ukrainian-flag";
 
+export { default as ArrowRightIcon } from "./components/arrow-right-icon";
 export { default as CheckIcon } from "./components/check-icon";
 export { default as CopyrightIcon } from "./components/copyright-icon";
 export { default as ChevronDownIcon } from "./components/chevron-down-icon";
