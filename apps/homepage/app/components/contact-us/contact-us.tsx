@@ -1,17 +1,16 @@
 import styles from "./styles.module.css";
+import { InputStack, UploadStack, SubmitButton } from "./components";
 
 const ContactUs = () => {
     return (
         <div className={styles["contact-us"]}>
-            <h1>Contact Us</h1>
-            <form>
-                <input value="info@dach-trier.com" disabled />
-                <input placeholder="your email" />
-                <textarea placeholder="additional info" />
-                <button type="submit">submit</button>
-            </form>
+            <h1>Зв'язатися з нами</h1>
+            <InputStack />
+            <UploadStack />
+            <SubmitButton />
         </div>
     );
 };
+
 
 export default ContactUs;

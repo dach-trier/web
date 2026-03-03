@@ -1,0 +1,17 @@
+.input {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.input > .heading {
+    margin-left: 4px;
+}
+
+.input > input,
+.input > textarea {
+    background: var(--color-slate-100);
+    padding: 4px 8px;
+    border-radius: 4px;
+    outline: 2px solid var(--color-slate-300);
+}

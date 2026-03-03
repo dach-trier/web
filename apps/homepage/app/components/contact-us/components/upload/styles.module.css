@@ -1,0 +1,23 @@
+.upload {
+    max-width: 250px;
+    min-width: 200px;
+    width: 80%;
+    height: 180px;
+
+    cursor: pointer;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    outline: 3px dashed var(--color-slate-300);
+    color: var(--color-slate-500);
+}
+
+.upload-icon {
+    width: 32px;
+    stroke: currentColor;
+    stroke-width: 2;
+}

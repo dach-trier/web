@@ -1,0 +1,9 @@
+.upload-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.upload-stack > label {
+    display: block;
+}

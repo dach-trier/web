@@ -1,0 +1,28 @@
+.container {
+    container-type: inline-size;
+    container-name: input-stack;
+}
+
+.input-stack {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px 40px;
+}
+
+.input-stack > * {
+    min-width: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+@container input-stack (min-width: 334px) {
+    .input-stack {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .input-stack > :nth-child(3),
+    .input-stack > :nth-child(4),
+    .input-stack > :nth-child(5) {
+        grid-column: span 2;
+    }
+}
