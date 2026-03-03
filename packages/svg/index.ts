@@ -19,4 +19,5 @@ export { default as FacebookIcon } from "./components/facebook-icon";
 export { default as ParentIcon } from "./components/parent-icon";
 export { default as GroupIcon } from "./components/group-icon";
 export { default as DocumentIcon } from "./components/document-icon";
+export { default as UploadIcon } from "./components/upload-icon";
 export { default as LocationMap } from "./components/location-map";
