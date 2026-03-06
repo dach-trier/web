@@ -1,4 +1,4 @@
-export { default as Carousel } from "./src/carousel";
-export { default as CarouselSlide } from "./src/carousel-slide";
-export { default as Dropdown, type DropdownRef } from "./src/dropdown";
-export { default as Spacing, type SpacingProps } from "./src/spacing";
+export { default as Carousel } from "./components/carousel";
+export { default as CarouselSlide } from "./components/carousel-slide";
+export { default as Dropdown, type DropdownRef } from "./components/dropdown";
+export { default as Spacing, type SpacingProps } from "./components/spacing";
